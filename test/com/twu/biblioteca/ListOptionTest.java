@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 public class ListOptionTest {
 
     private ListOption lo;
-    private BookLister lb;
 
     @Test
     public void getNameShouldReturnOptionName() {
