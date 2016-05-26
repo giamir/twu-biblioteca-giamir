@@ -14,7 +14,7 @@ public class BookListerTest {
     private ArrayList<Book> bookList;
 
     @Before
-    public void beforeEach(){
+    public void beforeEach() {
         b1 = mock(Book.class);
         b2 = mock(Book.class);
         bookList = new ArrayList<Book>();
@@ -22,7 +22,7 @@ public class BookListerTest {
     }
 
     @Test
-    public void listBooksShouldPrintAllBooksInLister(){
+    public void listBooksShouldPrintAllBooksInLister() {
         BookLister bl = new BookLister(bookList);
         bl.listBooks();
         verify(b1, times(1)).printDetails(System.out);

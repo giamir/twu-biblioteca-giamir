@@ -18,7 +18,7 @@ public class BibliotecaApp {
         MainMenu mainMenu = new MainMenu(makeMenuItems());
         mainMenu.printOptions(System.out);
 
-        while(true) mainMenu.runMenuItem(chooseMenuItem());
+        while(true) mainMenu.runMenuItem(chooseMenuItem(), System.out);
     }
 
     private ArrayList<Book> makeBookList() {
