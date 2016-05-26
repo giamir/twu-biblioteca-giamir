@@ -19,7 +19,16 @@ public class MainMenu {
 
     public void runMenuItem(String command) {
         for(MenuItem item: items) {
-            if (command.equals(item.getName())) item.run();
+            if (command.equals(generateCommand(item.getName()))) item.run();
         }
+    }
+
+    private String generateCommand(String input) {
+        String[] splittedInput = input.split("\\s+");
+        String command = "";
+        for(String word: splittedInput) {
+            command += word.substring(0,1);
+        }
+        return command.toUpperCase();
     }
 }

@@ -35,7 +35,7 @@ public class MainMenuTest {
 
     @Test
     public void runMenuItemShouldExecuteItemRunMethodForTheCommandPassed(){
-        mm.runMenuItem("List Books");
+        mm.runMenuItem("LB");
         verify(mi1, times(1)).run();
     }
 }

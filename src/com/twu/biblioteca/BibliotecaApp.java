@@ -18,10 +18,7 @@ public class BibliotecaApp {
         MainMenu mainMenu = new MainMenu(makeMenuItems());
         mainMenu.printOptions(System.out);
 
-        while(true){
-            String command = chooseMenuItem();
-            break;
-        }
+        while(true) mainMenu.runMenuItem(chooseMenuItem());
     }
 
     private ArrayList<Book> makeBookList() {
@@ -43,7 +40,7 @@ public class BibliotecaApp {
 
     private String chooseMenuItem(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a menu option command: ");
+        System.out.println("Enter a menu option command (first letter/s): ");
         return scanner.next().toUpperCase();
     }
 }
