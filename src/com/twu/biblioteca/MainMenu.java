@@ -5,15 +5,21 @@ import java.util.ArrayList;
 
 public class MainMenu {
 
-    private ArrayList<MenuItem> listOptions;
+    private ArrayList<MenuItem> items;
 
-    public MainMenu(ArrayList<MenuItem> items) {
-        listOptions = items;
+    public MainMenu(ArrayList<MenuItem> i) {
+        items = i;
     }
 
-    public void printListOptions(PrintStream ps) {
-        for(MenuItem item: listOptions){
+    public void printOptions(PrintStream ps) {
+        for(MenuItem item: items){
             ps.println(item.getName());
+        }
+    }
+
+    public void runMenuItem(String command) {
+        for(MenuItem item: items) {
+            if (command.equals(item.getName())) item.run();
         }
     }
 }

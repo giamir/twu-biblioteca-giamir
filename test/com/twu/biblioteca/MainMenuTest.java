@@ -10,10 +10,11 @@ import static org.mockito.Mockito.*;
 public class MainMenuTest {
 
     private MainMenu mm;
+    private MenuItem mi1;
 
     @Before
     public void beforeEach(){
-        MenuItem mi1 = mock(ListOption.class);
+        mi1 = mock(ListOption.class);
         when(mi1.getName()).thenReturn("List Books");
         MenuItem mi2 = mock(ListOption.class);
         when(mi2.getName()).thenReturn("Another List Option");
@@ -25,10 +26,16 @@ public class MainMenuTest {
     }
 
     @Test
-    public void printListOptionsShouldPrintTheListOfAvailableOptions(){
+    public void printOptionsShouldPrintTheListOfAvailableOptions(){
         PrintStream mockPrintStream = mock(PrintStream.class);
-        mm.printListOptions(mockPrintStream);
+        mm.printOptions(mockPrintStream);
         verify(mockPrintStream).println("List Books");
         verify(mockPrintStream).println("Another List Option");
+    }
+
+    @Test
+    public void runMenuItemShouldExecuteItemRunMethodForTheCommandPassed(){
+        mm.runMenuItem("List Books");
+        verify(mi1, times(1)).run();
     }
 }

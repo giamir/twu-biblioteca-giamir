@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class BibliotecaApp {
 
@@ -13,9 +14,14 @@ public class BibliotecaApp {
     public void go() {
         Message message = new Message(System.out);
         message.printWelcome();
-        BookLister bookLister = new BookLister(makeBookList());
+
         MainMenu mainMenu = new MainMenu(makeMenuItems());
-        mainMenu.printListOptions(System.out);
+        mainMenu.printOptions(System.out);
+
+        while(true){
+            String command = chooseMenuItem();
+            break;
+        }
     }
 
     private ArrayList<Book> makeBookList() {
@@ -28,9 +34,16 @@ public class BibliotecaApp {
     }
 
     private ArrayList<MenuItem> makeMenuItems() {
-        ListOption listBooks = new ListOption("List Books");
+        BookLister bookLister = new BookLister(makeBookList());
+        ListOption listBooks = new ListOption("List Books", bookLister);
         ArrayList<MenuItem> items = new ArrayList<MenuItem>();
         items.add(listBooks);
         return items;
+    }
+
+    private String chooseMenuItem(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a menu option command: ");
+        return scanner.next().toUpperCase();
     }
 }
