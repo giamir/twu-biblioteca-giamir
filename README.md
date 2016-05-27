@@ -1,5 +1,76 @@
 # Biblioteca [![Build Status](https://travis-ci.org/giamir/twu-biblioteca-giamir.svg?branch=master)](https://travis-ci.org/giamir/twu-biblioteca-giamir)
 
+## Installation Instructions
+Clone from github and move into directory
+```
+$ git@github.com:giamir/twu-biblioteca-giamir.git
+$ cd twu-biblioteca-giamir
+```
+You will need [JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) and [Gradle](http://gradle.org) installed on your machine to try the application.
+
+### Running tests
+
+#### Testing Framework
+```
+junit-4.11
+mockito-all-1.10.19
+system-rules-1.16.0
+```
+
+To run the full test suite
+```
+$ gradle clean test
+```
+
+After you run the test suite you will have a compiled version of the app on this path
+```
+$ cd build/classes/main
+```
+
+You can now try the app from terminal
+```
+$ java com.twu.biblioteca.BibliotecaApp
+```
+
+### Usage example
+```
+WELCOME TO BIBLIOTECA
+
+MAIN MENU
+- List Books
+- Check Out
+- Return
+- Quit
+
+Enter a menu option command (first letter/s): LB
+High Fidelity                  Nick Hornby                    1995
+The Divine Comedy              Dante Alighieri                1320
+The Decameron                  Giovanni Boccaccio             1353
+
+Enter a menu option command (first letter/s): CO
+Enter the title: The Divine Comedy
+Enter the author: Dante Alighieri
+Enter the year: 1320
+Thank you! Enjoy the book
+
+Enter a menu option command (first letter/s): LB
+High Fidelity                  Nick Hornby                    1995
+The Decameron                  Giovanni Boccaccio             1353
+
+Enter a menu option command (first letter/s): R
+Enter the title: The Divine Comedy
+Enter the author: Dante Alighieri
+Enter the year: 1320
+Thank you for returning the book.
+
+Enter a menu option command (first letter/s): LB
+High Fidelity                  Nick Hornby                    1995
+The Divine Comedy              Dante Alighieri                1320
+The Decameron                  Giovanni Boccaccio             1353
+
+Enter a menu option command (first letter/s): Q
+```
+
 ## Business Case
 The Bangalore Public Library has approached us to design and implement a Library Management System for them. Based on their requirements, we have decided to develop a new system named Biblioteca. Since the library has a large list of requirements, we will be making multiple releases of Biblioteca, with each release incrementally adding more functionality.
 
@@ -97,3 +168,7 @@ I want to be able to see my user information (name, email address and phone numb
 so that I know that the library can contact me.
 This option should only be available when the customer is logged in and should only display that customer’s information.
 ```
+
+## Contributors
+
+[Giamir Buoncristiani](https://github.com/giamir)
