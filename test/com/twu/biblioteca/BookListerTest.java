@@ -58,4 +58,21 @@ public class BookListerTest {
         bookLister.checkOut();
         assertTrue(systemOutRule.getLog().contains("That book is not available."));
     }
+
+    @Test
+    public void giveBackShouldPrintASuccessMessageIfYouReturnedSuccessfully() {
+        systemInMock.provideLines("High Fidelity", "Nick Hornby", "1995");
+        when(b1.isCheckedOut()).thenReturn(true);
+        when(b1.isEqualTo(any(Book.class))).thenReturn(true);
+        when(b1.giveBack()).thenReturn("Thank you for returning the book.");
+        bookLister.giveBack();
+        assertTrue(systemOutRule.getLog().contains("Thank you for returning the book."));
+    }
+
+    @Test
+    public void giveBackShouldPrintAFailureMessageIfYouCouldNotReturn() {
+        systemInMock.provideLines("High Fidelity", "Nick Hornby", "1995");
+        bookLister.giveBack();
+        assertTrue(systemOutRule.getLog().contains("That is not a valid book to return."));
+    }
 }

@@ -38,7 +38,7 @@ public class Book {
 
     public String giveBack() {
         checkedOut = false;
-        return "Successfully returned!";
+        return "Thank you for returning the book.";
     }
 
     public void printDetails(PrintStream printStream) {

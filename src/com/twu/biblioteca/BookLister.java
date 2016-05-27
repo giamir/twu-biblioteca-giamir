@@ -21,11 +21,23 @@ public class BookLister {
         System.out.println(checkOutItem(book));
     }
 
+    public void giveBack() {
+        Book book = new Book(getItemTitle(), getItemAuthor(), getItemYear());
+        System.out.println(giveBackItem(book));
+    }
+
     private String checkOutItem(Book book) {
         for(Book b: bookList){
             if(b.isEqualTo(book) && !b.isCheckedOut()) return b.checkOut();
         }
         return "That book is not available.";
+    }
+
+    private String giveBackItem(Book book) {
+        for(Book b: bookList){
+            if(b.isEqualTo(book) && b.isCheckedOut()) return b.giveBack();
+        }
+        return "That is not a valid book to return.";
     }
 
     private String getItemTitle() {
