@@ -1,11 +1,13 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menuoptions;
 
-public class ListOption implements MenuItem {
+import com.twu.biblioteca.BookLister;
+
+public class ReturnOption implements MenuItem {
 
     private String optionName;
     private BookLister bookLister;
 
-    public ListOption(String name, BookLister bl) {
+    public ReturnOption(String name, BookLister bl) {
         optionName = name;
         bookLister = bl;
     }
@@ -17,6 +19,6 @@ public class ListOption implements MenuItem {
 
     @Override
     public void run(){
-        bookLister.listBooks();
+        bookLister.giveBack();
     }
 }

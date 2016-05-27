@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.menuoptions.MenuItem;
+
 import java.io.PrintStream;
 import java.util.ArrayList;
 

@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import java.io.PrintStream;
 import java.util.*;
 
+import com.twu.biblioteca.menuoptions.ListOption;
+import com.twu.biblioteca.menuoptions.MenuItem;
 import org.junit.Before;
 import org.junit.Test;
 import static org.mockito.Mockito.*;

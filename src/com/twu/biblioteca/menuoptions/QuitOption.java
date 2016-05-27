@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menuoptions;
 
 public class QuitOption implements MenuItem {
 

@@ -1,5 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menuoptions;
 
+import com.twu.biblioteca.BookLister;
+import com.twu.biblioteca.menuoptions.ReturnOption;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

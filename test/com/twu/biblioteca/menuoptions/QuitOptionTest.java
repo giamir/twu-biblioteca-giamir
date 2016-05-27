@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.menuoptions;
 
+import com.twu.biblioteca.menuoptions.QuitOption;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Rule;
