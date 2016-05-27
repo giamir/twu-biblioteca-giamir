@@ -6,11 +6,13 @@ public class Book {
     private String title;
     private String author;
     private int year;
+    private boolean checkedOut;
 
     public Book(String t, String a, int y) {
         title = t;
         author = a;
         year = y;
+        checkedOut = false;
     }
 
     public String getTitle() {
@@ -21,9 +23,13 @@ public class Book {
         return author;
     }
 
-    public int getYear() {
-        return year;
-    }
+    public int getYear() { return year; }
+
+    public boolean isCheckedOut() { return checkedOut; }
+
+    public void checkedOut() { checkedOut = true; }
+
+    public void returned() { checkedOut = false; }
 
     public void printDetails(PrintStream printStream) {
         printStream.println(getTitle()+"\t"+getAuthor()+"\t"+getYear());

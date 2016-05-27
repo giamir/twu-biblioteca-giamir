@@ -31,6 +31,19 @@ public class BookTest {
     }
 
     @Test
+    public void checkedOutShouldSetTheStatusOfTheBookAsCheckedOut() {
+        book.checkedOut();
+        assertTrue(book.isCheckedOut());
+    }
+
+    @Test
+    public void returnedShouldResetTheStatusOfTheBookAsCheckedOut() {
+        book.checkedOut();
+        book.returned();
+        assertFalse(book.isCheckedOut());
+    }
+
+    @Test
     public void printDetailsShouldPrintBookDetails() {
         PrintStream mockPrintStream = mock(PrintStream.class);
         book.printDetails(mockPrintStream);
