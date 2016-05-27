@@ -10,6 +10,6 @@ public class Message {
     }
 
     public void printWelcome() {
-        printStream.println("Welcome to Biblioteca");
+        printStream.println("WELCOME TO BIBLIOTECA\n");
     }
 }

@@ -31,8 +31,9 @@ public class MainMenuTest {
     @Test
     public void printOptionsShouldPrintTheListOfAvailableOptions() {
         mm.printOptions(mockPrintStream);
-        verify(mockPrintStream).println("List Books");
-        verify(mockPrintStream).println("Another List Option");
+        verify(mockPrintStream).println("MAIN MENU");
+        verify(mockPrintStream).println("- List Books");
+        verify(mockPrintStream).println("- Another List Option");
     }
 
     @Test

@@ -42,6 +42,6 @@ public class Book {
     }
 
     public void printDetails(PrintStream printStream) {
-        printStream.println(getTitle()+"\t"+getAuthor()+"\t"+getYear());
+        printStream.printf("%-30.30s %-30.30s %-30.30s%n", getTitle(), getAuthor(), getYear());
     }
 }

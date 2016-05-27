@@ -59,6 +59,6 @@ public class BookTest {
     public void printDetailsShouldPrintBookDetails() {
         PrintStream mockPrintStream = mock(PrintStream.class);
         book.printDetails(mockPrintStream);
-        verify(mockPrintStream).println("High Fidelity\tNick Hornby\t1995");
+        verify(mockPrintStream).printf("%-30.30s %-30.30s %-30.30s%n", "High Fidelity", "Nick Hornby", 1995);
     }
 }

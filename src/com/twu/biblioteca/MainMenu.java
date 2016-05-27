@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class MainMenu {
 
+    private final static String MAIN_MENU_MSG = "MAIN MENU";
     private final static String NOT_VALID_OPTION_MSG = "Select a valid option!";
     private ArrayList<MenuItem> items;
 
@@ -13,8 +14,9 @@ public class MainMenu {
     }
 
     public void printOptions(PrintStream ps) {
+        ps.println(MAIN_MENU_MSG);
         for(MenuItem item: items){
-            ps.println(item.getName());
+            ps.println("- " + item.getName());
         }
     }
 

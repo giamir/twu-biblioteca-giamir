@@ -43,7 +43,7 @@ public class BibliotecaApp {
 
     private String chooseMenuItem(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a menu option command (first letter/s): ");
+        System.out.print("\nEnter a menu option command (first letter/s): ");
         return scanner.next().toUpperCase();
     }
 }
