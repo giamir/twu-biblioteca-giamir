@@ -31,15 +31,27 @@ public class BookTest {
     }
 
     @Test
-    public void checkedOutShouldSetTheStatusOfTheBookAsCheckedOut() {
-        book.checkedOut();
+    public void isEqualToShouldReturnTrueIfTheBookPassedHasArgumentHaveTheSameProperties() {
+        Book equalBook = new Book("High Fidelity", "Nick Hornby", 1995);
+        assertTrue(book.isEqualTo(equalBook));
+    }
+
+    @Test
+    public void isEqualToShouldReturnFalseIfTheBookPassedHasArgumentHaveDifferentProperties() {
+        Book differentBook = new Book("The Divine Comedy", "Dante Alighieri", 1320);
+        assertFalse(book.isEqualTo(differentBook));
+    }
+
+    @Test
+    public void checkOutShouldSetTheStatusOfTheBookAsCheckedOut() {
+        book.checkOut();
         assertTrue(book.isCheckedOut());
     }
 
     @Test
-    public void returnedShouldResetTheStatusOfTheBookAsCheckedOut() {
-        book.checkedOut();
-        book.returned();
+    public void giveBackShouldResetTheStatusOfTheBookAsCheckedOut() {
+        book.checkOut();
+        book.giveBack();
         assertFalse(book.isCheckedOut());
     }
 

@@ -27,9 +27,19 @@ public class Book {
 
     public boolean isCheckedOut() { return checkedOut; }
 
-    public void checkedOut() { checkedOut = true; }
+    public boolean isEqualTo(Book book) {
+        return title == book.getTitle() && author == book.getAuthor() && year == book.getYear();
+    }
 
-    public void returned() { checkedOut = false; }
+    public String checkOut() {
+        checkedOut = true;
+        return "Thank you! Enjoy the book";
+    }
+
+    public String giveBack() {
+        checkedOut = false;
+        return "Successfully returned!";
+    }
 
     public void printDetails(PrintStream printStream) {
         printStream.println(getTitle()+"\t"+getAuthor()+"\t"+getYear());

@@ -22,7 +22,7 @@ public class BibliotecaApp {
     }
 
     private ArrayList<Book> makeBookList() {
-        Book b1 = new Book("High Fidelity", " Nick Hornby", 1995);
+        Book b1 = new Book("High Fidelity", "Nick Hornby", 1995);
         Book b2 = new Book("The Divine Comedy", "Dante Alighieri", 1320);
         Book b3 = new Book("The Decameron", "Giovanni Boccaccio", 1353);
         ArrayList<Book> bookList = new ArrayList<Book>();
