@@ -28,7 +28,7 @@ public class Book {
     public boolean isCheckedOut() { return checkedOut; }
 
     public boolean isEqualTo(Book book) {
-        return title == book.getTitle() && author == book.getAuthor() && year == book.getYear();
+        return title.equals(book.getTitle()) && author.equals(book.getAuthor()) && year == book.getYear();
     }
 
     public String checkOut() {
