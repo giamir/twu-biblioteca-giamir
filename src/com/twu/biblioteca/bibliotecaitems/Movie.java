@@ -1,12 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.bibliotecaitems;
 
 import java.io.PrintStream;
 
-public class Movie {
-    private String title;
-    private String author;
-    private int year;
-    private boolean checkedOut;
+public class Movie extends BibliotecaItem {
     private int rating;
 
     public Movie(String t, String a, int y) {
@@ -14,41 +10,22 @@ public class Movie {
     }
 
     public Movie(String t, String a, int y, int r) {
-        title = t;
-        author = a;
-        year = y;
-        checkedOut = false;
+        super(t, a, y);
         rating = r;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public int getYear() { return year; }
 
     public String getRating() {
         if(rating == 0) return "unrated";
         return Integer.toString(rating);
     }
 
-    public boolean isCheckedOut() { return checkedOut; }
-
-    public boolean isEqualTo(Movie movie) {
-        return title.equals(movie.getTitle()) && author.equals(movie.getAuthor()) && year == movie.getYear();
-    }
-
     public String checkOut() {
-        checkedOut = true;
+        super.checkOut();
         return "Thank you! Enjoy the movie";
     }
 
     public String giveBack() {
-        checkedOut = false;
+        super.giveBack();
         return "Thank you for returning the movie.";
     }
 

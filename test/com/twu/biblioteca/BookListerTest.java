@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.twu.biblioteca.bibliotecaitems.Book;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Rule;

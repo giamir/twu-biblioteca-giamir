@@ -1,6 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.bibliotecaitems;
 
 import java.io.PrintStream;
+
+import com.twu.biblioteca.bibliotecaitems.Book;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -49,10 +51,21 @@ public class BookTest {
     }
 
     @Test
+    public void giveBackShouldReturnACheckedOutBookMessage() {
+        assertEquals("Thank you! Enjoy the book", book.checkOut());
+    }
+
+    @Test
     public void giveBackShouldResetTheStatusOfTheBookAsCheckedOut() {
         book.checkOut();
         book.giveBack();
         assertFalse(book.isCheckedOut());
+    }
+
+    @Test
+    public void giveBackShouldReturnAReturnedBookMessage() {
+        book.checkOut();
+        assertEquals("Thank you for returning the book.", book.giveBack());
     }
 
     @Test
