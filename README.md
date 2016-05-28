@@ -38,8 +38,11 @@ WELCOME TO BIBLIOTECA
 
 MAIN MENU
 - List Books
-- Check Out
-- Return
+- List Movies
+- Check Out Book
+- Check Out Movie
+- Return Book
+- Return Movie
 - Quit
 
 Enter a menu option command (first letter/s): LB
@@ -47,26 +50,31 @@ High Fidelity                  Nick Hornby                    1995
 The Divine Comedy              Dante Alighieri                1320
 The Decameron                  Giovanni Boccaccio             1353
 
-Enter a menu option command (first letter/s): CO
-Enter the title: The Divine Comedy
-Enter the author: Dante Alighieri
-Enter the year: 1320
-Thank you! Enjoy the book
+Enter a menu option command (first letter/s): LM
+Life is Beautiful              Roberto Benigni                1997                           10
+The Godfather                  Francis Ford Coppola           1972                           9
+Gladiator                      Ridley Scott                   2000                           unrated
 
-Enter a menu option command (first letter/s): LB
-High Fidelity                  Nick Hornby                    1995
-The Decameron                  Giovanni Boccaccio             1353
+Enter a menu option command (first letter/s): COM
+Enter the name: Gladiator
+Enter the director: Ridley Scott
+Enter the year: 2000
+Thank you! Enjoy the movie
 
-Enter a menu option command (first letter/s): R
-Enter the title: The Divine Comedy
-Enter the author: Dante Alighieri
-Enter the year: 1320
-Thank you for returning the book.
+Enter a menu option command (first letter/s): LM
+Life is Beautiful              Roberto Benigni                1997                           10
+The Godfather                  Francis Ford Coppola           1972                           9
 
-Enter a menu option command (first letter/s): LB
-High Fidelity                  Nick Hornby                    1995
-The Divine Comedy              Dante Alighieri                1320
-The Decameron                  Giovanni Boccaccio             1353
+Enter a menu option command (first letter/s): RM
+Enter the name: Gladiator
+Enter the director: Ridley Scott
+Enter the year: 2000
+Thank you for returning the movie.
+
+Enter a menu option command (first letter/s): LM
+Life is Beautiful              Roberto Benigni                1997                           10
+The Godfather                  Francis Ford Coppola           1972                           9
+Gladiator                      Ridley Scott                   2000                           unrated
 
 Enter a menu option command (first letter/s): Q
 ```
