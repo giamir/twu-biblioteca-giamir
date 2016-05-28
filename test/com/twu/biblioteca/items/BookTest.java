@@ -1,8 +1,7 @@
-package com.twu.biblioteca.bibliotecaitems;
+package com.twu.biblioteca.items;
 
 import java.io.PrintStream;
 
-import com.twu.biblioteca.bibliotecaitems.Book;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -1,8 +1,8 @@
-package com.twu.biblioteca.bibliotecaitems;
+package com.twu.biblioteca.items;
 
 import java.io.PrintStream;
 
-public class Movie extends BibliotecaItemBase implements BibliotecaItem {
+public class Movie extends ItemBase implements Item {
     private int rating;
 
     public Movie(String t, String a, int y) {

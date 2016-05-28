@@ -1,14 +1,14 @@
-package com.twu.biblioteca.bibliotecaitems;
+package com.twu.biblioteca.items;
 
 import java.io.PrintStream;
 
-abstract public class BibliotecaItemBase implements BibliotecaItem {
+abstract public class ItemBase implements Item {
     private String title;
     private String author;
     private int year;
     private boolean checkedOut;
 
-    public BibliotecaItemBase(String t, String a, int y) {
+    public ItemBase(String t, String a, int y) {
         title = t;
         author = a;
         year = y;
@@ -36,7 +36,7 @@ abstract public class BibliotecaItemBase implements BibliotecaItem {
     }
 
     @Override
-    public boolean isEqualTo(BibliotecaItem item) {
+    public boolean isEqualTo(Item item) {
         return title.equals(item.getTitle()) && author.equals(item.getAuthor()) && year == item.getYear();
     }
 

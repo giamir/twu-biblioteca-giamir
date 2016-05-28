@@ -3,9 +3,8 @@ package com.twu.biblioteca.itemlisters;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.twu.biblioteca.bibliotecaitems.BibliotecaItem;
-import com.twu.biblioteca.bibliotecaitems.Movie;
-import com.twu.biblioteca.itemlisters.MovieLister;
+import com.twu.biblioteca.items.Item;
+import com.twu.biblioteca.items.Movie;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Rule;
@@ -18,7 +17,7 @@ public class MovieListerTest {
 
     private Movie m1;
     private Movie m2;
-    private ArrayList<BibliotecaItem> movieList;
+    private ArrayList<Item> movieList;
     private MovieLister movieLister;
 
     @Rule
@@ -31,7 +30,7 @@ public class MovieListerTest {
     public void beforeEach() {
         m1 = mock(Movie.class);
         m2 = mock(Movie.class);
-        movieList = new ArrayList<BibliotecaItem>();
+        movieList = new ArrayList<Item>();
         movieList.addAll(Arrays.asList(m1, m2));
         movieLister = new MovieLister(movieList);
     }
@@ -49,7 +48,7 @@ public class MovieListerTest {
     public void checkOutShouldPrintASuccessMessageIfYouCheckedOutSuccessfully() {
         systemInMock.provideLines("The Godfather", "Francis Ford Coppola", "1972");
         when(m1.isCheckedOut()).thenReturn(false);
-        when(m1.isEqualTo(any(BibliotecaItem.class))).thenReturn(true);
+        when(m1.isEqualTo(any(Item.class))).thenReturn(true);
         when(m1.checkOut()).thenReturn("Thank you! Enjoy the movie");
         movieLister.checkOut();
         assertTrue(systemOutRule.getLog().contains("Thank you! Enjoy the movie"));
@@ -66,7 +65,7 @@ public class MovieListerTest {
     public void giveBackShouldPrintASuccessMessageIfYouReturnedSuccessfully() {
         systemInMock.provideLines("The Godfather", "Francis Ford Coppola", "1972");
         when(m1.isCheckedOut()).thenReturn(true);
-        when(m1.isEqualTo(any(BibliotecaItem.class))).thenReturn(true);
+        when(m1.isEqualTo(any(Item.class))).thenReturn(true);
         when(m1.giveBack()).thenReturn("Thank you for returning the movie.");
         movieLister.giveBack();
         assertTrue(systemOutRule.getLog().contains("Thank you for returning the movie."));

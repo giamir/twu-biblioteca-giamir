@@ -1,13 +1,13 @@
-package com.twu.biblioteca.bibliotecaitems;
+package com.twu.biblioteca.items;
 
 import java.io.PrintStream;
 
-public interface BibliotecaItem {
+public interface Item {
     String getTitle();
     String getAuthor();
     int getYear();
     boolean isCheckedOut();
-    boolean isEqualTo(BibliotecaItem item);
+    boolean isEqualTo(Item item);
     String checkOut();
     String giveBack();
     void printDetails(PrintStream printStream);

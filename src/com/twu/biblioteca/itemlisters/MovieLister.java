@@ -1,13 +1,13 @@
 package com.twu.biblioteca.itemlisters;
 
-import com.twu.biblioteca.bibliotecaitems.BibliotecaItem;
-import com.twu.biblioteca.bibliotecaitems.Movie;
+import com.twu.biblioteca.items.Item;
+import com.twu.biblioteca.items.Movie;
 
 import java.util.ArrayList;
 
 public class MovieLister extends ItemListerBase implements ItemLister {
 
-    public MovieLister(ArrayList<BibliotecaItem> il){
+    public MovieLister(ArrayList<Item> il){
         super(il);
     }
 

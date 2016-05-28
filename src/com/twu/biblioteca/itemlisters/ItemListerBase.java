@@ -1,20 +1,20 @@
 package com.twu.biblioteca.itemlisters;
 
-import com.twu.biblioteca.bibliotecaitems.*;
+import com.twu.biblioteca.items.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 abstract public class ItemListerBase implements ItemLister {
-    private ArrayList<BibliotecaItem> itemList;
+    private ArrayList<Item> itemList;
 
-    public ItemListerBase(ArrayList<BibliotecaItem> il){
+    public ItemListerBase(ArrayList<Item> il){
         itemList = il;
     }
 
     @Override
     public void listItems() {
-        for (BibliotecaItem i : itemList) {
+        for (Item i : itemList) {
             if (!i.isCheckedOut()) i.printDetails(System.out);
         }
     }
@@ -25,15 +25,15 @@ abstract public class ItemListerBase implements ItemLister {
     @Override
     abstract public void giveBack();
 
-    protected String checkOutItem(BibliotecaItem item) {
-        for(BibliotecaItem i: itemList){
+    protected String checkOutItem(Item item) {
+        for(Item i: itemList){
             if(i.isEqualTo(item) && !i.isCheckedOut()) return i.checkOut();
         }
         return "That item is not available.";
     }
 
-    protected String giveBackItem(BibliotecaItem item) {
-        for(BibliotecaItem i: itemList){
+    protected String giveBackItem(Item item) {
+        for(Item i: itemList){
             if(i.isEqualTo(item) && i.isCheckedOut()) return i.giveBack();
         }
         return "That is not a valid item to return.";

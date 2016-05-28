@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.bibliotecaitems.BibliotecaItem;
-import com.twu.biblioteca.bibliotecaitems.Book;
+import com.twu.biblioteca.items.Item;
+import com.twu.biblioteca.items.Book;
 import com.twu.biblioteca.itemlisters.BookLister;
 import com.twu.biblioteca.menuoptions.*;
 
@@ -26,11 +26,11 @@ public class BibliotecaApp {
         while(true) mainMenu.runMenuItem(chooseMenuItem(), System.out);
     }
 
-    private ArrayList<BibliotecaItem> makeBookList() {
+    private ArrayList<Item> makeBookList() {
         Book b1 = new Book("High Fidelity", "Nick Hornby", 1995);
         Book b2 = new Book("The Divine Comedy", "Dante Alighieri", 1320);
         Book b3 = new Book("The Decameron", "Giovanni Boccaccio", 1353);
-        ArrayList<BibliotecaItem> bookList = new ArrayList<BibliotecaItem>();
+        ArrayList<Item> bookList = new ArrayList<Item>();
         bookList.addAll(Arrays.asList(b1, b2, b3));
         return bookList;
     }

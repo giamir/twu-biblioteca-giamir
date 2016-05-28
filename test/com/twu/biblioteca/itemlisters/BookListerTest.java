@@ -3,9 +3,8 @@ package com.twu.biblioteca.itemlisters;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.twu.biblioteca.bibliotecaitems.BibliotecaItem;
-import com.twu.biblioteca.bibliotecaitems.Book;
-import com.twu.biblioteca.itemlisters.BookLister;
+import com.twu.biblioteca.items.Item;
+import com.twu.biblioteca.items.Book;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Rule;
@@ -18,7 +17,7 @@ public class BookListerTest {
 
     private Book b1;
     private Book b2;
-    private ArrayList<BibliotecaItem> bookList;
+    private ArrayList<Item> bookList;
     private BookLister bookLister;
 
     @Rule
@@ -31,7 +30,7 @@ public class BookListerTest {
     public void beforeEach() {
         b1 = mock(Book.class);
         b2 = mock(Book.class);
-        bookList = new ArrayList<BibliotecaItem>();
+        bookList = new ArrayList<Item>();
         bookList.addAll(Arrays.asList(b1, b2));
         bookLister = new BookLister(bookList);
     }
