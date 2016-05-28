@@ -53,19 +53,19 @@ abstract public class ItemListerBase implements ItemLister {
 
     protected String getItemTitle(String whatToEnter) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the " + whatToEnter + " :");
+        System.out.print("Enter the " + whatToEnter + ": ");
         return scanner.nextLine().trim();
     }
 
     protected String getItemAuthor(String whatToEnter) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the " + whatToEnter + " :");
+        System.out.print("Enter the " + whatToEnter + ": ");
         return scanner.nextLine().trim();
     }
 
     protected int getItemYear(String whatToEnter) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the " + whatToEnter + " :");
+        System.out.print("Enter the " + whatToEnter + ": ");
         return scanner.nextInt();
     }
 }
