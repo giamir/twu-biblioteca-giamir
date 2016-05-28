@@ -1,10 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.itemlisters;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.twu.biblioteca.bibliotecaitems.BibliotecaItem;
 import com.twu.biblioteca.bibliotecaitems.Movie;
+import com.twu.biblioteca.itemlisters.MovieLister;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Rule;
@@ -17,7 +18,7 @@ public class MovieListerTest {
 
     private Movie m1;
     private Movie m2;
-    private ArrayList<Movie> movieList;
+    private ArrayList<BibliotecaItem> movieList;
     private MovieLister movieLister;
 
     @Rule
@@ -30,7 +31,7 @@ public class MovieListerTest {
     public void beforeEach() {
         m1 = mock(Movie.class);
         m2 = mock(Movie.class);
-        movieList = new ArrayList<Movie>();
+        movieList = new ArrayList<BibliotecaItem>();
         movieList.addAll(Arrays.asList(m1, m2));
         movieLister = new MovieLister(movieList);
     }
@@ -58,7 +59,7 @@ public class MovieListerTest {
     public void checkOutShouldPrintAFailureMessageIfYouCouldNotCheckOut() {
         systemInMock.provideLines("The Godfather", "Francis Ford Coppola", "1972");
         movieLister.checkOut();
-        assertTrue(systemOutRule.getLog().contains("That movie is not available."));
+        assertTrue(systemOutRule.getLog().contains("That item is not available."));
     }
 
     @Test
@@ -75,6 +76,6 @@ public class MovieListerTest {
     public void giveBackShouldPrintAFailureMessageIfYouCouldNotReturn() {
         systemInMock.provideLines("The Godfather", "Francis Ford Coppola", "1972");
         movieLister.giveBack();
-        assertTrue(systemOutRule.getLog().contains("That is not a valid movie to return."));
+        assertTrue(systemOutRule.getLog().contains("That is not a valid item to return."));
     }
 }

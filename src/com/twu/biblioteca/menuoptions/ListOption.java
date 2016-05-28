@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menuoptions;
 
-import com.twu.biblioteca.BookLister;
+import com.twu.biblioteca.itemlisters.BookLister;
 
 public class ListOption implements MenuItem {
 
@@ -19,6 +19,6 @@ public class ListOption implements MenuItem {
 
     @Override
     public void run(){
-        bookLister.listBooks();
+        bookLister.listItems();
     }
 }

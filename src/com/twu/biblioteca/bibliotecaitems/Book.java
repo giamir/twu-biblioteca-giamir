@@ -1,6 +1,6 @@
 package com.twu.biblioteca.bibliotecaitems;
 
-public class Book extends BibliotecaItem {
+public class Book extends BibliotecaItemBase implements BibliotecaItem {
 
     public Book(String title, String author, int year) {
         super(title, author, year);

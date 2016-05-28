@@ -1,7 +1,6 @@
 package com.twu.biblioteca.menuoptions;
 
-import com.twu.biblioteca.BookLister;
-import com.twu.biblioteca.menuoptions.ListOption;
+import com.twu.biblioteca.itemlisters.BookLister;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -26,6 +25,6 @@ public class ListOptionTest {
     @Test
     public void runShouldExecuteListBooksMethodOfBookLister() {
         lo.run();
-        verify(bl, times(1)).listBooks();
+        verify(bl, times(1)).listItems();
     }
 }

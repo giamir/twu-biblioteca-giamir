@@ -1,7 +1,6 @@
 package com.twu.biblioteca.menuoptions;
 
-import com.twu.biblioteca.BookLister;
-import com.twu.biblioteca.menuoptions.CheckOutOption;
+import com.twu.biblioteca.itemlisters.BookLister;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

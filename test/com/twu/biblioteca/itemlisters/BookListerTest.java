@@ -1,9 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.itemlisters;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.twu.biblioteca.bibliotecaitems.BibliotecaItem;
 import com.twu.biblioteca.bibliotecaitems.Book;
+import com.twu.biblioteca.itemlisters.BookLister;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Rule;
@@ -16,7 +18,7 @@ public class BookListerTest {
 
     private Book b1;
     private Book b2;
-    private ArrayList<Book> bookList;
+    private ArrayList<BibliotecaItem> bookList;
     private BookLister bookLister;
 
     @Rule
@@ -29,7 +31,7 @@ public class BookListerTest {
     public void beforeEach() {
         b1 = mock(Book.class);
         b2 = mock(Book.class);
-        bookList = new ArrayList<Book>();
+        bookList = new ArrayList<BibliotecaItem>();
         bookList.addAll(Arrays.asList(b1, b2));
         bookLister = new BookLister(bookList);
     }
@@ -38,7 +40,7 @@ public class BookListerTest {
     public void listBooksShouldPrintAllBooksInListerThatAreNotCheckedOut() {
         when(b1.isCheckedOut()).thenReturn(false);
         when(b2.isCheckedOut()).thenReturn(true);
-        bookLister.listBooks();
+        bookLister.listItems();
         verify(b1, times(1)).printDetails(System.out);
         verify(b2, never()).printDetails(System.out);
     }
@@ -57,7 +59,7 @@ public class BookListerTest {
     public void checkOutShouldPrintAFailureMessageIfYouCouldNotCheckOut() {
         systemInMock.provideLines("High Fidelity", "Nick Hornby", "1995");
         bookLister.checkOut();
-        assertTrue(systemOutRule.getLog().contains("That book is not available."));
+        assertTrue(systemOutRule.getLog().contains("That item is not available."));
     }
 
     @Test
@@ -74,6 +76,6 @@ public class BookListerTest {
     public void giveBackShouldPrintAFailureMessageIfYouCouldNotReturn() {
         systemInMock.provideLines("High Fidelity", "Nick Hornby", "1995");
         bookLister.giveBack();
-        assertTrue(systemOutRule.getLog().contains("That is not a valid book to return."));
+        assertTrue(systemOutRule.getLog().contains("That is not a valid item to return."));
     }
 }

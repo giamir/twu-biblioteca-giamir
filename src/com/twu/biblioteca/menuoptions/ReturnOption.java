@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menuoptions;
 
-import com.twu.biblioteca.BookLister;
+import com.twu.biblioteca.itemlisters.BookLister;
 
 public class ReturnOption implements MenuItem {
 
