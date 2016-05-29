@@ -6,25 +6,25 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-public class LoginOptionTest {
+public class LogoutOptionTest {
 
-    private LoginOption lo;
+    private LogoutOption lo;
     private UserManager um;
 
     @Before
     public void beforeEach(){
         um = mock(UserManager.class);
-        lo = new LoginOption("User Login", um);
+        lo = new LogoutOption("User Logout", um);
     }
 
     @Test
     public void getNameShouldReturnOptionName() {
-        assertEquals("User Login", lo.getName());
+        assertEquals("User Logout", lo.getName());
     }
 
     @Test
     public void runShouldExecuteListBooksMethodOfBookLister() {
         lo.run();
-        verify(um, times(1)).authenticate(System.out);
+        verify(um, times(1)).logout();
     }
 }
