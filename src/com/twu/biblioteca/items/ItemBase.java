@@ -3,6 +3,7 @@ package com.twu.biblioteca.items;
 import java.io.PrintStream;
 
 abstract public class ItemBase implements Item {
+
     private String title;
     private String author;
     private int year;

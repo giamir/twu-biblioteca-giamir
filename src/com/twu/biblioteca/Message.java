@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.io.PrintStream;
 
 public class Message {
+
     private PrintStream printStream;
 
     public Message(PrintStream printStream) {
