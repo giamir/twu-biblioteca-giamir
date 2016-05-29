@@ -1,5 +1,6 @@
 package com.twu.biblioteca.items;
 
+import com.twu.biblioteca.*;
 import java.io.PrintStream;
 
 abstract public class ItemBase implements Item {
@@ -8,6 +9,7 @@ abstract public class ItemBase implements Item {
     private String author;
     private int year;
     private boolean checkedOut;
+    private User holder;
 
     public ItemBase(String t, String a, int y) {
         title = t;
@@ -29,6 +31,16 @@ abstract public class ItemBase implements Item {
     @Override
     public int getYear() {
         return year;
+    }
+
+    @Override
+    public User getHolder() {
+        return holder;
+    }
+
+    @Override
+    public void setHolder(User u) {
+        holder = u;
     }
 
     @Override

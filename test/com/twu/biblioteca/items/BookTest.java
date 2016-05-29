@@ -1,5 +1,6 @@
 package com.twu.biblioteca.items;
 
+import com.twu.biblioteca.User;
 import java.io.PrintStream;
 
 import org.junit.Before;
@@ -47,6 +48,13 @@ public class BookTest {
     public void checkOutShouldSetTheStatusOfTheBookAsCheckedOut() {
         book.checkOut();
         assertTrue(book.isCheckedOut());
+    }
+
+    @Test
+    public void setHolderShouldSetMovieHolder() {
+        User user = mock(User.class);
+        book.setHolder(user);
+        assertEquals(user, book.getHolder());
     }
 
     @Test
