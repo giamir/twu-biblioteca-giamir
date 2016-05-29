@@ -3,14 +3,24 @@ package com.twu.biblioteca;
 import java.util.*;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.contrib.java.lang.system.*;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.*;
 
 public class UserManagerTest {
     private UserManager userManager;
     private User u1;
     private User u2;
+
+    @Rule
+    public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
+
+    @Rule
+    public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
     @Before
     public void beforeEach() {
@@ -27,29 +37,37 @@ public class UserManagerTest {
 
     @Test
     public void authenticateShouldSetCurrentUser() {
-        userManager.authenticate("123-4567", "password");
+        systemInMock.provideLines("123-4567", "password");
+        userManager.authenticate(System.out);
         assertEquals(u1, userManager.getCurrentUser());
     }
 
     @Test
     public void authenticateShouldReturnASuccessfullMessageIfTheUserIsLoggedIn() {
-        assertEquals("Logged in successfully", userManager.authenticate("123-4567", "password"));
+        systemInMock.provideLines("123-4567", "password");
+        userManager.authenticate(System.out);
+        assertTrue(systemOutRule.getLog().contains("Logged in successfully"));
     }
 
     @Test
     public void authenticateShouldReturnAFailureMessageIfTheUserCouldNotLogIn() {
-        assertEquals("User and/or Password not correct", userManager.authenticate("not_correct_user", "not_correct_password"));
+        systemInMock.provideLines("not_correct_user", "password_not_correct");
+        userManager.authenticate(System.out);
+        assertTrue(systemOutRule.getLog().contains("User and/or Password not correct"));
     }
 
     @Test
     public void authenticateShouldReturnAFailureMessageIfAUserIsAlreadyLoggedIn() {
-        userManager.authenticate("123-4567", "password");
-        assertEquals("Already logged in", userManager.authenticate("234-5678", "wordpass"));
+        systemInMock.provideLines("123-4567", "password");
+        userManager.authenticate(System.out);
+        userManager.authenticate(System.out);
+        assertTrue(systemOutRule.getLog().contains("Already logged in"));
     }
 
     @Test
     public void logoutShouldResetCurrentUser() {
-        userManager.authenticate("123-4567", "password");
+        systemInMock.provideLines("123-4567", "password");
+        userManager.authenticate(System.out);
         userManager.logout();
         assertEquals(null, userManager.getCurrentUser());
     }

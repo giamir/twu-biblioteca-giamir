@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import javax.jws.soap.SOAPBinding;
+import java.io.PrintStream;
 import java.util.*;
 
 public class UserManager {
@@ -22,11 +23,14 @@ public class UserManager {
         return currentUser;
     }
 
-    public String authenticate(String libraryNumber, String password) {
-        if (currentUser != null) return ALREADY_LOGGED_IN_MSG;
-        currentUser = retrieveUser(libraryNumber, password);
-        if (currentUser == null) return NOT_VALID_CREDENTIALS_MSG;
-        return LOGGED_IN_MSG;
+    public void authenticate(PrintStream ps) {
+        if (currentUser != null){
+            ps.println(ALREADY_LOGGED_IN_MSG);
+            return;
+        }
+        currentUser = retrieveUser(getLibraryNumber(), getPassword());
+        if (currentUser == null) { ps.println(NOT_VALID_CREDENTIALS_MSG); }
+        else { ps.println(LOGGED_IN_MSG); }
     }
 
     public String logout() {
@@ -44,5 +48,17 @@ public class UserManager {
 
     private boolean isUserVerified(User user, String libraryNumber, String password){
         return user.getLibraryNumber().equals(libraryNumber) && user.getPassword().equals(password);
+    }
+
+    private String getLibraryNumber() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your library number: ");
+        return scanner.nextLine().trim();
+    }
+
+    private String getPassword() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your password: ");
+        return scanner.nextLine().trim();
     }
 }
