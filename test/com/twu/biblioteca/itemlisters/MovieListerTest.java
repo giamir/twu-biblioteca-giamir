@@ -2,9 +2,10 @@ package com.twu.biblioteca.itemlisters;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import com.twu.biblioteca.User;
 import com.twu.biblioteca.items.Item;
 import com.twu.biblioteca.items.Movie;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Rule;
@@ -15,6 +16,7 @@ import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.*;
 
 public class MovieListerTest {
 
+    private User user;
     private Movie m1;
     private Movie m2;
     private ArrayList<Item> movieList;
@@ -28,6 +30,7 @@ public class MovieListerTest {
 
     @Before
     public void beforeEach() {
+        user = mock(User.class);
         m1 = mock(Movie.class);
         m2 = mock(Movie.class);
         movieList = new ArrayList<Item>();
@@ -49,15 +52,15 @@ public class MovieListerTest {
         systemInMock.provideLines("The Godfather", "Francis Ford Coppola", "1972");
         when(m1.isCheckedOut()).thenReturn(false);
         when(m1.isEqualTo(any(Item.class))).thenReturn(true);
-        when(m1.checkOut()).thenReturn("Thank you! Enjoy the movie");
-        movieLister.checkOut();
+        when(m1.checkOut(any(User.class))).thenReturn("Thank you! Enjoy the movie");
+        movieLister.checkOut(user);
         assertTrue(systemOutRule.getLog().contains("Thank you! Enjoy the movie"));
     }
 
     @Test
     public void checkOutShouldPrintAFailureMessageIfYouCouldNotCheckOut() {
         systemInMock.provideLines("The Godfather", "Francis Ford Coppola", "1972");
-        movieLister.checkOut();
+        movieLister.checkOut(user);
         assertTrue(systemOutRule.getLog().contains("That item is not available."));
     }
 
@@ -66,15 +69,15 @@ public class MovieListerTest {
         systemInMock.provideLines("The Godfather", "Francis Ford Coppola", "1972");
         when(m1.isCheckedOut()).thenReturn(true);
         when(m1.isEqualTo(any(Item.class))).thenReturn(true);
-        when(m1.giveBack()).thenReturn("Thank you for returning the movie.");
-        movieLister.giveBack();
+        when(m1.giveBack(any(User.class))).thenReturn("Thank you for returning the movie.");
+        movieLister.giveBack(user);
         assertTrue(systemOutRule.getLog().contains("Thank you for returning the movie."));
     }
 
     @Test
     public void giveBackShouldPrintAFailureMessageIfYouCouldNotReturn() {
         systemInMock.provideLines("The Godfather", "Francis Ford Coppola", "1972");
-        movieLister.giveBack();
+        movieLister.giveBack(user);
         assertTrue(systemOutRule.getLog().contains("That is not a valid item to return."));
     }
 }

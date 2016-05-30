@@ -1,5 +1,7 @@
 package com.twu.biblioteca.items;
 
+import com.twu.biblioteca.User;
+
 public class Book extends ItemBase implements Item {
 
     public Book(String title, String author, int year) {
@@ -7,14 +9,12 @@ public class Book extends ItemBase implements Item {
     }
 
     @Override
-    public String checkOut() {
-        super.checkOut();
-        return "Thank you! Enjoy the book";
+    public String checkOut(User user) {
+        return evaluateCheckOut(user) ? "Thank you! Enjoy the book" : "That book is not available.";
     }
 
     @Override
-    public String giveBack() {
-        super.giveBack();
-        return "Thank you for returning the book.";
+    public String giveBack(User user) {
+        return evaluateGiveBack(user) ? "Thank you for returning the book." : "That is not a valid book to return.";
     }
 }

@@ -1,6 +1,8 @@
 package com.twu.biblioteca.itemlisters;
 
+import com.twu.biblioteca.User;
 import com.twu.biblioteca.items.*;
+import sun.rmi.server.UnicastServerRef;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,21 +22,21 @@ abstract public class ItemListerBase implements ItemLister {
     }
 
     @Override
-    abstract public void checkOut();
+    abstract public void checkOut(User user);
 
     @Override
-    abstract public void giveBack();
+    abstract public void giveBack(User user);
 
-    protected String checkOutItem(Item item) {
+    protected String checkOutItem(Item item, User user) {
         for(Item i: itemList){
-            if(i.isEqualTo(item) && !i.isCheckedOut()) return i.checkOut();
+            if(i.isEqualTo(item)) return i.checkOut(user);
         }
         return "That item is not available.";
     }
 
-    protected String giveBackItem(Item item) {
+    protected String giveBackItem(Item item, User user) {
         for(Item i: itemList){
-            if(i.isEqualTo(item) && i.isCheckedOut()) return i.giveBack();
+            if(i.isEqualTo(item)) return i.giveBack(user);
         }
         return "That is not a valid item to return.";
     }

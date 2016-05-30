@@ -32,10 +32,10 @@ public class BibliotecaApp {
         ArrayList<MenuItem> items = new ArrayList<MenuItem>();
         items.add(new ListOption("List Books", bookLister));
         items.add(new ListOption("List Movies", movieLister));
-        items.add(new CheckOutOption("Check Out Book", bookLister));
-        items.add(new CheckOutOption("Check Out Movie", movieLister));
-        items.add(new ReturnOption("Return Book", bookLister));
-        items.add(new ReturnOption("Return Movie", movieLister));
+        items.add(new CheckOutOption("Check Out Book", bookLister, userManager));
+        items.add(new CheckOutOption("Check Out Movie", movieLister, userManager));
+        items.add(new ReturnOption("Return Book", bookLister, userManager));
+        items.add(new ReturnOption("Return Movie", movieLister, userManager));
         items.add(new LoginOption("Sign In", userManager));
         items.add(new LogoutOption("Sign Out", userManager));
         items.add(new QuitOption("Quit"));

@@ -1,19 +1,22 @@
 package com.twu.biblioteca.menuoptions;
 
+import com.twu.biblioteca.UserManager;
 import com.twu.biblioteca.itemlisters.ItemLister;
 
 public class CheckOutOption extends MenuItemBase implements MenuItem {
 
     private ItemLister itemLister;
+    private UserManager userManager;
 
-    public CheckOutOption(String name, ItemLister il) {
+    public CheckOutOption(String name, ItemLister il, UserManager um) {
         super(name);
         itemLister = il;
+        userManager = um;
     }
 
     @Override
     public void run() {
-        itemLister.checkOut();
+        itemLister.checkOut(userManager.getCurrentUser());
     }
 
     @Override

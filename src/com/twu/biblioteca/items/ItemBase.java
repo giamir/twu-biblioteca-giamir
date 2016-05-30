@@ -39,11 +39,6 @@ abstract public class ItemBase implements Item {
     }
 
     @Override
-    public void setHolder(User u) {
-        holder = u;
-    }
-
-    @Override
     public boolean isCheckedOut() {
         return checkedOut;
     }
@@ -54,19 +49,33 @@ abstract public class ItemBase implements Item {
     }
 
     @Override
-    public String checkOut() {
-        checkedOut = true;
-        return "Thank you!";
+    public String checkOut(User user) {
+        return evaluateCheckOut(user) ? "Thank you! Enjoy the item" : "That item is not available.";
     }
 
     @Override
-    public String giveBack() {
-        checkedOut = false;
-        return "Thank you for returning the item.";
+    public String giveBack(User user) {
+        return evaluateGiveBack(user) ? "Thank you for returning the item." : "That is not a valid item to return.";
     }
 
     @Override
     public void printDetails(PrintStream printStream) {
         printStream.printf("%-30.30s %-30.30s %-30.30s%n", getTitle(), getAuthor(), getYear());
+    }
+
+    protected boolean evaluateCheckOut(User user) {
+        if(checkedOut) return false;
+        holder = user;
+        checkedOut = true;
+        return true;
+    }
+
+    protected boolean evaluateGiveBack(User user) {
+        if(checkedOut && holder.equals(user)) {
+            holder = null;
+            checkedOut = false;
+            return true;
+        }
+        return false;
     }
 }

@@ -5,15 +5,20 @@ import java.io.PrintStream;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.jws.soap.SOAPBinding;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class MovieTest {
     private Movie movie;
+    private User user;
 
     @Before
     public void beforeEach() {
+        user = mock(User.class);
         movie = new Movie("The Godfather", "Francis Ford Coppola", 1972, 10);
     }
 
@@ -57,33 +62,26 @@ public class MovieTest {
 
     @Test
     public void checkOutShouldSetTheStatusOfTheMovieAsCheckedOut() {
-        movie.checkOut();
+        movie.checkOut(user);
         assertTrue(movie.isCheckedOut());
     }
 
     @Test
-    public void setHolderShouldSetMovieHolder() {
-        User user = mock(User.class);
-        movie.setHolder(user);
-        assertEquals(user, movie.getHolder());
-    }
-
-    @Test
     public void giveBackShouldReturnACheckedOutMovieMessage() {
-        assertEquals("Thank you! Enjoy the movie", movie.checkOut());
+        assertEquals("Thank you! Enjoy the movie", movie.checkOut(user));
     }
 
     @Test
     public void giveBackShouldResetTheStatusOfTheMovieAsCheckedOut() {
-        movie.checkOut();
-        movie.giveBack();
+        movie.checkOut(user);
+        movie.giveBack(user);
         assertFalse(movie.isCheckedOut());
     }
 
     @Test
     public void giveBackShouldReturnAReturnedMovieMessage() {
-        movie.checkOut();
-        assertEquals("Thank you for returning the movie.", movie.giveBack());
+        movie.checkOut(user);
+        assertEquals("Thank you for returning the movie.", movie.giveBack(user));
     }
 
     @Test

@@ -2,9 +2,10 @@ package com.twu.biblioteca.itemlisters;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import com.twu.biblioteca.User;
 import com.twu.biblioteca.items.Item;
 import com.twu.biblioteca.items.Book;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Rule;
@@ -15,6 +16,7 @@ import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.*;
 
 public class BookListerTest {
 
+    private User user;
     private Book b1;
     private Book b2;
     private ArrayList<Item> bookList;
@@ -28,6 +30,7 @@ public class BookListerTest {
 
     @Before
     public void beforeEach() {
+        user = mock(User.class);
         b1 = mock(Book.class);
         b2 = mock(Book.class);
         bookList = new ArrayList<Item>();
@@ -49,15 +52,15 @@ public class BookListerTest {
         systemInMock.provideLines("High Fidelity", "Nick Hornby", "1995");
         when(b1.isCheckedOut()).thenReturn(false);
         when(b1.isEqualTo(any(Book.class))).thenReturn(true);
-        when(b1.checkOut()).thenReturn("Thank you! Enjoy the book");
-        bookLister.checkOut();
+        when(b1.checkOut(any(User.class))).thenReturn("Thank you! Enjoy the book");
+        bookLister.checkOut(user);
         assertTrue(systemOutRule.getLog().contains("Thank you! Enjoy the book"));
     }
 
     @Test
     public void checkOutShouldPrintAFailureMessageIfYouCouldNotCheckOut() {
         systemInMock.provideLines("High Fidelity", "Nick Hornby", "1995");
-        bookLister.checkOut();
+        bookLister.checkOut(user);
         assertTrue(systemOutRule.getLog().contains("That item is not available."));
     }
 
@@ -66,15 +69,15 @@ public class BookListerTest {
         systemInMock.provideLines("High Fidelity", "Nick Hornby", "1995");
         when(b1.isCheckedOut()).thenReturn(true);
         when(b1.isEqualTo(any(Book.class))).thenReturn(true);
-        when(b1.giveBack()).thenReturn("Thank you for returning the book.");
-        bookLister.giveBack();
+        when(b1.giveBack(any(User.class))).thenReturn("Thank you for returning the book.");
+        bookLister.giveBack(user);
         assertTrue(systemOutRule.getLog().contains("Thank you for returning the book."));
     }
 
     @Test
     public void giveBackShouldPrintAFailureMessageIfYouCouldNotReturn() {
         systemInMock.provideLines("High Fidelity", "Nick Hornby", "1995");
-        bookLister.giveBack();
+        bookLister.giveBack(user);
         assertTrue(systemOutRule.getLog().contains("That is not a valid item to return."));
     }
 }

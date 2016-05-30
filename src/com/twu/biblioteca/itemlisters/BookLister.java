@@ -1,5 +1,6 @@
 package com.twu.biblioteca.itemlisters;
 
+import com.twu.biblioteca.User;
 import com.twu.biblioteca.items.Item;
 import com.twu.biblioteca.items.Book;
 
@@ -12,14 +13,14 @@ public class BookLister extends ItemListerBase implements ItemLister {
     }
 
     @Override
-    public void checkOut() {
+    public void checkOut(User user) {
         Book book = new Book(super.getItemTitle(), super.getItemAuthor(), super.getItemYear());
-        System.out.println(super.checkOutItem(book));
+        System.out.println(super.checkOutItem(book, user));
     }
 
     @Override
-    public void giveBack() {
+    public void giveBack(User user) {
         Book book = new Book(super.getItemTitle(), super.getItemAuthor(), super.getItemYear());
-        System.out.println(super.giveBackItem(book));
+        System.out.println(super.giveBackItem(book, user));
     }
 }

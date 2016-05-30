@@ -8,11 +8,10 @@ public interface Item {
     String getAuthor();
     int getYear();
     User getHolder();
-    void setHolder(User user);
     boolean isCheckedOut();
     boolean isEqualTo(Item item);
-    String checkOut();
-    String giveBack();
+    String checkOut(User user);
+    String giveBack(User user);
     void printDetails(PrintStream printStream);
 }
 

@@ -11,9 +11,11 @@ import static org.mockito.Mockito.verify;
 
 public class BookTest {
     private Book book;
+    private User user;
 
     @Before
     public void beforeEach() {
+        user = mock(User.class);
         book = new Book("High Fidelity", "Nick Hornby", 1995);
     }
 
@@ -46,33 +48,26 @@ public class BookTest {
 
     @Test
     public void checkOutShouldSetTheStatusOfTheBookAsCheckedOut() {
-        book.checkOut();
+        book.checkOut(user);
         assertTrue(book.isCheckedOut());
     }
 
     @Test
-    public void setHolderShouldSetMovieHolder() {
-        User user = mock(User.class);
-        book.setHolder(user);
-        assertEquals(user, book.getHolder());
-    }
-
-    @Test
     public void giveBackShouldReturnACheckedOutBookMessage() {
-        assertEquals("Thank you! Enjoy the book", book.checkOut());
+        assertEquals("Thank you! Enjoy the book", book.checkOut(user));
     }
 
     @Test
     public void giveBackShouldResetTheStatusOfTheBookAsCheckedOut() {
-        book.checkOut();
-        book.giveBack();
+        book.checkOut(user);
+        book.giveBack(user);
         assertFalse(book.isCheckedOut());
     }
 
     @Test
     public void giveBackShouldReturnAReturnedBookMessage() {
-        book.checkOut();
-        assertEquals("Thank you for returning the book.", book.giveBack());
+        book.checkOut(user);
+        assertEquals("Thank you for returning the book.", book.giveBack(user));
     }
 
     @Test
