@@ -14,7 +14,7 @@ public class BibliotecaApp {
         BibliotecaApp.go();
     }
 
-    public static void go() {
+    private static void go() {
         Message.printWelcome(System.out);
         UserManager userManager = new UserManager(makeUserList());
         MainMenu mainMenu = new MainMenu(makeMenuItems(userManager), userManager);

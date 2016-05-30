@@ -6,11 +6,11 @@ import java.io.PrintStream;
 
 public class Movie extends ItemBase implements Item {
 
-    public static final String MOVIE_SUCCESSFUL_CHECKOUT_MSG = "Thank you! Enjoy the movie";
-    public static final String MOVIE_NOT_AVAILABLE_MSG = "That movie is not available.";
-    public static final String MOVIE_SUCCESSFUL_RETURN_MSG = "Thank you for returning the movie.";
-    public static final String MOVIE_NOT_VALID_TO_RETURN_MSG = "That is not a valid movie to return.";
-    public static final String MOVIE_UNRATED_MSG = "unrated";
+    private static final String MOVIE_SUCCESSFUL_CHECKOUT_MSG = "Thank you! Enjoy the movie";
+    private static final String MOVIE_NOT_AVAILABLE_MSG = "That movie is not available.";
+    private static final String MOVIE_SUCCESSFUL_RETURN_MSG = "Thank you for returning the movie.";
+    private static final String MOVIE_NOT_VALID_TO_RETURN_MSG = "That is not a valid movie to return.";
+    private static final String MOVIE_UNRATED_MSG = "unrated";
 
     private int rating;
 

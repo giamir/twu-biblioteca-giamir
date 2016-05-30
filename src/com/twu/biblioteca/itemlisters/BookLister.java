@@ -1,10 +1,9 @@
 package com.twu.biblioteca.itemlisters;
 
-import com.twu.biblioteca.user.User;
-import com.twu.biblioteca.items.Item;
-import com.twu.biblioteca.items.Book;
-
 import java.util.ArrayList;
+import com.twu.biblioteca.IO.Scanner;
+import com.twu.biblioteca.items.*;
+import com.twu.biblioteca.user.User;
 
 public class BookLister extends ItemListerBase implements ItemLister {
 
@@ -14,13 +13,13 @@ public class BookLister extends ItemListerBase implements ItemLister {
 
     @Override
     public void checkOut(User user) {
-        Book book = new Book(getItem("title"), getItem("author"), Integer.parseInt(getItem("year")));
+        Book book = new Book(Scanner.getInput("title"), Scanner.getInput("author"), Integer.parseInt(Scanner.getInput("year")));
         System.out.println(checkOutItem(book, user));
     }
 
     @Override
     public void giveBack(User user) {
-        Book book = new Book(getItem("title"), getItem("author"), Integer.parseInt(getItem("year")));
+        Book book = new Book(Scanner.getInput("title"), Scanner.getInput("author"), Integer.parseInt(Scanner.getInput("year")));
         System.out.println(giveBackItem(book, user));
     }
 }

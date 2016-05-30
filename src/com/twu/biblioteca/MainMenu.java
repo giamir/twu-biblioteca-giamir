@@ -3,13 +3,15 @@ package com.twu.biblioteca;
 import java.util.*;
 import java.io.PrintStream;
 
+import com.twu.biblioteca.IO.Scanner;
 import com.twu.biblioteca.menuoptions.*;
 import com.twu.biblioteca.user.*;
 
 public class MainMenu {
 
-    private final static String MAIN_MENU_MSG = "MAIN MENU";
-    private final static String NOT_VALID_OPTION_MSG = "Select a valid option!";
+    private static final String MAIN_MENU_MSG = "MAIN MENU";
+    private static final String NOT_VALID_OPTION_MSG = "Select a valid option!";
+    private static final String MENU_COMMAND_OPTION_MSG = "a menu command option";
 
     private ArrayList<MenuItem> items;
     private UserManager userManager;
@@ -24,13 +26,14 @@ public class MainMenu {
         for(MenuItem item: items){
             if (!isItemDeactivated(item)) ps.println("- " + item.getName() + " [" +  generateCommand(item.getName()) + "]");
         }
+        ps.println();
     }
 
     public void executeMenuItem(PrintStream ps) {
-        String userInput = chooseMenuItem();
+        String userInput = Scanner.getInput(MENU_COMMAND_OPTION_MSG);
         if (isValidOption(userInput)) {
             for (MenuItem item : items) {
-                if (!isItemDeactivated(item) && userInput.equals(generateCommand(item.getName()))) item.run();
+                if (!isItemDeactivated(item) && userInput.equalsIgnoreCase(generateCommand(item.getName()))) item.run();
             }
         } else { printNotValidOption(ps); }
     }
@@ -40,7 +43,7 @@ public class MainMenu {
     }
 
     private boolean isValidOption(String userInput){
-        return commandList().contains(userInput);
+        return commandList().contains(userInput.toUpperCase());
     }
 
     private ArrayList<String> commandList(){
@@ -56,12 +59,6 @@ public class MainMenu {
         String command = "";
         for(String word: splitInput) command += word.substring(0,1);
         return command.toUpperCase();
-    }
-
-    private String chooseMenuItem(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\nEnter a menu option command (first letter/s): ");
-        return scanner.next().toUpperCase();
     }
 
     private boolean isItemDeactivated(MenuItem item){

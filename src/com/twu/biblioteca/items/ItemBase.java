@@ -1,15 +1,14 @@
 package com.twu.biblioteca.items;
 
-import com.twu.biblioteca.user.User;
-
 import java.io.PrintStream;
+import com.twu.biblioteca.user.User;
 
 abstract public class ItemBase implements Item {
 
-    public static final String ITEM_SUCCESSFUL_CHECKOUT_MSG = "Thank you! Enjoy the item";
-    public static final String ITEM_NOT_AVAILABLE_MSG = "That item is not available.";
-    public static final String ITEM_SUCCESSFUL_RETURN_MSG = "Thank you for returning the item.";
-    public static final String ITEM_NOT_VALID_TO_RETURN_MSG = "That is not a valid item to return.";
+    private static final String ITEM_SUCCESSFUL_CHECKOUT_MSG = "Thank you! Enjoy the item";
+    private static final String ITEM_NOT_AVAILABLE_MSG = "That item is not available.";
+    private static final String ITEM_SUCCESSFUL_RETURN_MSG = "Thank you for returning the item.";
+    private static final String ITEM_NOT_VALID_TO_RETURN_MSG = "That is not a valid item to return.";
 
     private String title;
     private String author;
@@ -51,7 +50,7 @@ abstract public class ItemBase implements Item {
 
     @Override
     public boolean isEqualTo(Item item) {
-        return title.equals(item.getTitle()) && author.equals(item.getAuthor()) && year == item.getYear();
+        return title.equalsIgnoreCase(item.getTitle()) && author.equalsIgnoreCase(item.getAuthor()) && year == item.getYear();
     }
 
     @Override

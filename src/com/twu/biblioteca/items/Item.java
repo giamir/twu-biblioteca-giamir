@@ -1,7 +1,7 @@
 package com.twu.biblioteca.items;
 
-import com.twu.biblioteca.user.User;
 import java.io.PrintStream;
+import com.twu.biblioteca.user.User;
 
 public interface Item {
     String getTitle();

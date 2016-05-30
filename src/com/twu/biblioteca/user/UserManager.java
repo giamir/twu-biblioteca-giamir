@@ -1,15 +1,19 @@
 package com.twu.biblioteca.user;
 
-import java.io.PrintStream;
 import java.util.*;
+import java.io.PrintStream;
+
+import com.twu.biblioteca.IO.Scanner;
 
 public class UserManager {
 
-    private final static String NOT_VALID_CREDENTIALS_MSG = "User and/or Password not correct";
-    private final static String ALREADY_LOGGED_IN_MSG = "Already logged in";
-    private final static String LOGGED_IN_MSG = "Logged in successfully";
-    private final static String NOT_LOGGED_IN_MSG = "No user is logged in";
-    private final static String LOGGED_OUT_MSG = "Logged out successfully";
+    private static final String NOT_VALID_CREDENTIALS_MSG = "User and/or Password not correct";
+    private static final String ALREADY_LOGGED_IN_MSG = "Already logged in";
+    private static final String LOGGED_IN_MSG = "Logged in successfully";
+    private static final String NOT_LOGGED_IN_MSG = "No user is logged in";
+    private static final String LOGGED_OUT_MSG = "Logged out successfully";
+    private static final String LIBRARY_NUMBER_MSG = "your library number";
+    private static final String PASSWORD_MSG = "your password";
 
     private ArrayList<User> userList;
     private User currentUser;
@@ -29,7 +33,7 @@ public class UserManager {
             ps.println(ALREADY_LOGGED_IN_MSG);
             return;
         }
-        currentUser = retrieveUser(getLibraryNumber(), getPassword());
+        currentUser = retrieveUser(Scanner.getInput(LIBRARY_NUMBER_MSG), Scanner.getInput(PASSWORD_MSG));
         if (!isLoggedIn()) { ps.println(NOT_VALID_CREDENTIALS_MSG); }
         else { ps.println(LOGGED_IN_MSG); }
     }
@@ -49,17 +53,5 @@ public class UserManager {
 
     private boolean isUserVerified(User user, String libraryNumber, String password){
         return user.getLibraryNumber().equals(libraryNumber) && user.getPassword().equals(password);
-    }
-
-    private String getLibraryNumber() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your library number: ");
-        return scanner.nextLine().trim();
-    }
-
-    private String getPassword() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your password: ");
-        return scanner.nextLine().trim();
     }
 }
