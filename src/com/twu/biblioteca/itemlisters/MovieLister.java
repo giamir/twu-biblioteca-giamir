@@ -14,13 +14,13 @@ public class MovieLister extends ItemListerBase implements ItemLister {
 
     @Override
     public void checkOut(User user) {
-        Movie movie = new Movie(getItemTitle("name"), getItemAuthor("director"), getItemYear());
+        Movie movie = new Movie(getItem("name"), getItem("director"), Integer.parseInt(getItem("year")));
         System.out.println(checkOutItem(movie, user));
     }
 
     @Override
     public void giveBack(User user) {
-        Movie movie = new Movie(getItemTitle("name"), getItemAuthor("director"), getItemYear());
+        Movie movie = new Movie(getItem("name"), getItem("director"), Integer.parseInt(getItem("year")));
         System.out.println(giveBackItem(movie, user));
     }
 }

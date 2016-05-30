@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 abstract public class ItemListerBase implements ItemLister {
+
+    public static final String ITEM_NOT_AVAILABLE_MSG = "That item is not available.";
+    public static final String ITEM_NOT_VALID_TO_RETURN_MSG = "That is not a valid item to return.";
+
     private ArrayList<Item> itemList;
 
     public ItemListerBase(ArrayList<Item> il){
@@ -30,43 +34,19 @@ abstract public class ItemListerBase implements ItemLister {
         for(Item i: itemList){
             if(i.isEqualTo(item)) return i.checkOut(user);
         }
-        return "That item is not available.";
+        return ITEM_NOT_AVAILABLE_MSG;
     }
 
     protected String giveBackItem(Item item, User user) {
         for(Item i: itemList){
             if(i.isEqualTo(item)) return i.giveBack(user);
         }
-        return "That is not a valid item to return.";
+        return ITEM_NOT_VALID_TO_RETURN_MSG;
     }
 
-    protected String getItemTitle() {
-        return getItemTitle("title");
-    }
-
-    protected String getItemAuthor() {
-        return getItemAuthor("author");
-    }
-
-    protected int getItemYear() {
-        return getItemYear("year");
-    }
-
-    protected String getItemTitle(String whatToEnter) {
+    protected String getItem(String itemName) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the " + whatToEnter + ": ");
+        System.out.print("Enter the " + itemName + ": ");
         return scanner.nextLine().trim();
-    }
-
-    protected String getItemAuthor(String whatToEnter) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the " + whatToEnter + ": ");
-        return scanner.nextLine().trim();
-    }
-
-    protected int getItemYear(String whatToEnter) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the " + whatToEnter + ": ");
-        return scanner.nextInt();
     }
 }

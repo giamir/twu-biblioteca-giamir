@@ -1,21 +1,17 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.IO;
 
 import java.io.PrintStream;
+
 import org.junit.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class MessageTest {
-    private Message message;
-
     @Test
-    public void printMessageShouldDisplayAWelcomeMessage() {
+    public void printWelcomeShouldDisplayAWelcomeMessage() {
         String welcomeMessage = "WELCOME TO BIBLIOTECA";
         PrintStream mockPrintStream = mock(PrintStream.class);
-
-        message = new Message(mockPrintStream);
-        message.printWelcome();
-
+        Message.printWelcome(mockPrintStream);
         verify(mockPrintStream).println(welcomeMessage);
     }
 }

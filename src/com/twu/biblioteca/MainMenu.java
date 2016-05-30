@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.menuoptions.*;
-import com.twu.biblioteca.user.UserManager;
-
 import java.util.*;
 import java.io.PrintStream;
+
+import com.twu.biblioteca.menuoptions.*;
+import com.twu.biblioteca.user.*;
 
 public class MainMenu {
 
@@ -20,20 +20,17 @@ public class MainMenu {
     }
 
     public void printOptions(PrintStream ps) {
-        ps.println();
-        ps.println(MAIN_MENU_MSG);
+        ps.println("\n" + MAIN_MENU_MSG);
         for(MenuItem item: items){
-            if (isItemDeactiveted(item)) continue;
-            ps.println("- " + item.getName() + " [" +  generateCommand(item.getName()) + "]");
+            if (!isItemDeactivated(item)) ps.println("- " + item.getName() + " [" +  generateCommand(item.getName()) + "]");
         }
     }
 
-    public void runMenuItem(PrintStream ps) {
+    public void executeMenuItem(PrintStream ps) {
         String userInput = chooseMenuItem();
         if (isValidOption(userInput)) {
             for (MenuItem item : items) {
-                if (isItemDeactiveted(item)) continue;
-                if (userInput.equals(generateCommand(item.getName()))) item.run();
+                if (!isItemDeactivated(item) && userInput.equals(generateCommand(item.getName()))) item.run();
             }
         } else { printNotValidOption(ps); }
     }
@@ -43,22 +40,21 @@ public class MainMenu {
     }
 
     private boolean isValidOption(String userInput){
-        return commandsList().contains(userInput);
+        return commandList().contains(userInput);
     }
 
-    private ArrayList<String> commandsList(){
-        ArrayList<String> commandsList = new ArrayList<String>();
+    private ArrayList<String> commandList(){
+        ArrayList<String> commandList = new ArrayList<String>();
         for(MenuItem item: items) {
-            if (isItemDeactiveted(item)) continue;
-            commandsList.add(generateCommand(item.getName()));
+            if (!isItemDeactivated(item)) commandList.add(generateCommand(item.getName()));
         }
-        return commandsList;
+        return commandList;
     }
 
     private String generateCommand(String input) {
-        String[] splittedInput = input.split("\\s+");
+        String[] splitInput = input.split("\\s+");
         String command = "";
-        for(String word: splittedInput) command += word.substring(0,1);
+        for(String word: splitInput) command += word.substring(0,1);
         return command.toUpperCase();
     }
 
@@ -68,7 +64,7 @@ public class MainMenu {
         return scanner.next().toUpperCase();
     }
 
-    private boolean isItemDeactiveted(MenuItem item){
+    private boolean isItemDeactivated(MenuItem item){
         return (userManager.isLoggedIn() && item.showWhenLoggedOutOnly()) ||
                 (!userManager.isLoggedIn() && item.showWhenLoggedInOnly());
     }

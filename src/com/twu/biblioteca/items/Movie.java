@@ -5,6 +5,13 @@ import com.twu.biblioteca.user.User;
 import java.io.PrintStream;
 
 public class Movie extends ItemBase implements Item {
+
+    public static final String MOVIE_SUCCESSFUL_CHECKOUT_MSG = "Thank you! Enjoy the movie";
+    public static final String MOVIE_NOT_AVAILABLE_MSG = "That movie is not available.";
+    public static final String MOVIE_SUCCESSFUL_RETURN_MSG = "Thank you for returning the movie.";
+    public static final String MOVIE_NOT_VALID_TO_RETURN_MSG = "That is not a valid movie to return.";
+    public static final String MOVIE_UNRATED_MSG = "unrated";
+
     private int rating;
 
     public Movie(String t, String a, int y) {
@@ -17,18 +24,18 @@ public class Movie extends ItemBase implements Item {
     }
 
     public String getRating() {
-        if(rating == 0) return "unrated";
+        if(rating == 0) return MOVIE_UNRATED_MSG;
         return Integer.toString(rating);
     }
 
     @Override
     public String checkOut(User user) {
-        return evaluateCheckOut(user) ? "Thank you! Enjoy the movie" : "That movie is not available.";
+        return evaluateCheckOut(user) ? MOVIE_SUCCESSFUL_CHECKOUT_MSG : MOVIE_NOT_AVAILABLE_MSG;
     }
 
     @Override
     public String giveBack(User user) {
-        return evaluateGiveBack(user) ? "Thank you for returning the movie." : "That is not a valid movie to return.";
+        return evaluateGiveBack(user) ? MOVIE_SUCCESSFUL_RETURN_MSG : MOVIE_NOT_VALID_TO_RETURN_MSG;
     }
 
     @Override

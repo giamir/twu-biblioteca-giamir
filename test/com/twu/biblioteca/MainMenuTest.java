@@ -65,14 +65,14 @@ public class MainMenuTest {
     @Test
     public void runMenuItemShouldExecuteItemRunMethodForTheCommandPassed() {
         systemInMock.provideLines("LB");
-        mainMenu.runMenuItem(System.out);
+        mainMenu.executeMenuItem(System.out);
         verify(listOption, times(1)).run();
     }
 
     @Test
     public void runMenuItemShouldDisplayAnErrorMessageIfNotAValidCommandHasBeenPassed() {
         systemInMock.provideLines("not_valid_command");
-        mainMenu.runMenuItem(System.out);
+        mainMenu.executeMenuItem(System.out);
         assertTrue(systemOutRule.getLog().contains("Select a valid option!"));
     }
 }

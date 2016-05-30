@@ -6,6 +6,11 @@ import java.io.PrintStream;
 
 abstract public class ItemBase implements Item {
 
+    public static final String ITEM_SUCCESSFUL_CHECKOUT_MSG = "Thank you! Enjoy the item";
+    public static final String ITEM_NOT_AVAILABLE_MSG = "That item is not available.";
+    public static final String ITEM_SUCCESSFUL_RETURN_MSG = "Thank you for returning the item.";
+    public static final String ITEM_NOT_VALID_TO_RETURN_MSG = "That is not a valid item to return.";
+
     private String title;
     private String author;
     private int year;
@@ -51,12 +56,12 @@ abstract public class ItemBase implements Item {
 
     @Override
     public String checkOut(User user) {
-        return evaluateCheckOut(user) ? "Thank you! Enjoy the item" : "That item is not available.";
+        return evaluateCheckOut(user) ? ITEM_SUCCESSFUL_CHECKOUT_MSG : ITEM_NOT_AVAILABLE_MSG;
     }
 
     @Override
     public String giveBack(User user) {
-        return evaluateGiveBack(user) ? "Thank you for returning the item." : "That is not a valid item to return.";
+        return evaluateGiveBack(user) ? ITEM_SUCCESSFUL_RETURN_MSG : ITEM_NOT_VALID_TO_RETURN_MSG;
     }
 
     @Override

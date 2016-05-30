@@ -9,7 +9,5 @@ public class QuitOption extends MenuItemBase implements MenuItem {
     }
 
     @Override
-    public void run() {
-        System.exit(0);
-    }
+    public void run() { System.exit(0); }
 }
