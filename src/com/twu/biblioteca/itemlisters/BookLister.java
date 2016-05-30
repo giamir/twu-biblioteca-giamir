@@ -14,13 +14,13 @@ public class BookLister extends ItemListerBase implements ItemLister {
 
     @Override
     public void checkOut(User user) {
-        Book book = new Book(super.getItemTitle(), super.getItemAuthor(), super.getItemYear());
-        System.out.println(super.checkOutItem(book, user));
+        Book book = new Book(getItemTitle(), getItemAuthor(), getItemYear());
+        System.out.println(checkOutItem(book, user));
     }
 
     @Override
     public void giveBack(User user) {
-        Book book = new Book(super.getItemTitle(), super.getItemAuthor(), super.getItemYear());
-        System.out.println(super.giveBackItem(book, user));
+        Book book = new Book(getItemTitle(), getItemAuthor(), getItemYear());
+        System.out.println(giveBackItem(book, user));
     }
 }

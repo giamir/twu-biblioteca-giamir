@@ -37,44 +37,120 @@ $ java com.twu.biblioteca.BibliotecaApp
 WELCOME TO BIBLIOTECA
 
 MAIN MENU
-- List Books
-- List Movies
-- Check Out Book
-- Check Out Movie
-- Return Book
-- Return Movie
-- Quit
+- List Books [LB]
+- List Movies [LM]
+- Sign In [SI]
+- Quit [Q]
+
+Enter a menu option command (first letter/s): SI
+Enter your library number: 123-4567
+Enter your password: password1
+Logged in successfully
+
+MAIN MENU
+- List Books [LB]
+- List Movies [LM]
+- Check Out Book [COB]
+- Check Out Movie [COM]
+- Return Book [RB]
+- Return Movie [RM]
+- Sign Out [SO]
+- Quit [Q]
 
 Enter a menu option command (first letter/s): LB
 High Fidelity                  Nick Hornby                    1995
 The Divine Comedy              Dante Alighieri                1320
 The Decameron                  Giovanni Boccaccio             1353
 
-Enter a menu option command (first letter/s): LM
-Life is Beautiful              Roberto Benigni                1997                           10
-The Godfather                  Francis Ford Coppola           1972                           9
-Gladiator                      Ridley Scott                   2000                           unrated
+MAIN MENU
+- List Books [LB]
+- List Movies [LM]
+- Check Out Book [COB]
+- Check Out Movie [COM]
+- Return Book [RB]
+- Return Movie [RM]
+- Sign Out [SO]
+- Quit [Q]
 
-Enter a menu option command (first letter/s): COM
-Enter the name: Gladiator
-Enter the director: Ridley Scott
-Enter the year: 2000
-Thank you! Enjoy the movie
+Enter a menu option command (first letter/s): COB
+Enter the title: The Divine Comedy
+Enter the author: Dante Alighieri
+Enter the year: 1320
+Thank you! Enjoy the book
 
-Enter a menu option command (first letter/s): LM
-Life is Beautiful              Roberto Benigni                1997                           10
-The Godfather                  Francis Ford Coppola           1972                           9
+MAIN MENU
+- List Books [LB]
+- List Movies [LM]
+- Check Out Book [COB]
+- Check Out Movie [COM]
+- Return Book [RB]
+- Return Movie [RM]
+- Sign Out [SO]
+- Quit [Q]
 
-Enter a menu option command (first letter/s): RM
-Enter the name: Gladiator
-Enter the director: Ridley Scott
-Enter the year: 2000
-Thank you for returning the movie.
+Enter a menu option command (first letter/s): LB
+High Fidelity                  Nick Hornby                    1995
+The Decameron                  Giovanni Boccaccio             1353
 
-Enter a menu option command (first letter/s): LM
-Life is Beautiful              Roberto Benigni                1997                           10
-The Godfather                  Francis Ford Coppola           1972                           9
-Gladiator                      Ridley Scott                   2000                           unrated
+MAIN MENU
+- List Books [LB]
+- List Movies [LM]
+- Check Out Book [COB]
+- Check Out Movie [COM]
+- Return Book [RB]
+- Return Movie [RM]
+- Sign Out [SO]
+- Quit [Q]
+
+Enter a menu option command (first letter/s): RB
+Enter the title: The Divine Comedy
+Enter the author: Dante Alighieri
+Enter the year: 1320
+Thank you for returning the book.
+
+MAIN MENU
+- List Books [LB]
+- List Movies [LM]
+- Check Out Book [COB]
+- Check Out Movie [COM]
+- Return Book [RB]
+- Return Movie [RM]
+- Sign Out [SO]
+- Quit [Q]
+
+Enter a menu option command (first letter/s): LB
+High Fidelity                  Nick Hornby                    1995
+The Divine Comedy              Dante Alighieri                1320
+The Decameron                  Giovanni Boccaccio             1353
+
+MAIN MENU
+- List Books [LB]
+- List Movies [LM]
+- Check Out Book [COB]
+- Check Out Movie [COM]
+- Return Book [RB]
+- Return Movie [RM]
+- Sign Out [SO]
+- Quit [Q]
+
+MAIN MENU
+- List Books [LB]
+- List Movies [LM]
+- Check Out Book [COB]
+- Check Out Movie [COM]
+- Return Book [RB]
+- Return Movie [RM]
+- Sign Out [SO]
+- Quit [Q]
+
+Enter a menu option command (first letter/s): SO
+Logged out successfully
+
+MAIN MENU
+- List Books [LB]
+- List Movies [LM]
+- Sign In [SI]
+- Quit [Q]
 
 Enter a menu option command (first letter/s): Q
 ```
