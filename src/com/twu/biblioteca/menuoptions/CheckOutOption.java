@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menuoptions;
 
-import com.twu.biblioteca.UserManager;
+import com.twu.biblioteca.user.UserManager;
 import com.twu.biblioteca.itemlisters.ItemLister;
 
 public class CheckOutOption extends MenuItemBase implements MenuItem {

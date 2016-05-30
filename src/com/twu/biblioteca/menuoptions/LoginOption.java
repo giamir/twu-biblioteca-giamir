@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menuoptions;
 
-import com.twu.biblioteca.UserManager;
+import com.twu.biblioteca.user.UserManager;
 
 public class LoginOption extends MenuItemBase implements MenuItem {
 

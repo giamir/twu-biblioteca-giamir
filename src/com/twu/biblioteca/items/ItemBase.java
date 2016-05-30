@@ -1,6 +1,7 @@
 package com.twu.biblioteca.items;
 
-import com.twu.biblioteca.*;
+import com.twu.biblioteca.user.User;
+
 import java.io.PrintStream;
 
 abstract public class ItemBase implements Item {

@@ -1,6 +1,6 @@
 package com.twu.biblioteca.items;
 
-import com.twu.biblioteca.User;
+import com.twu.biblioteca.user.User;
 
 public class Book extends ItemBase implements Item {
 

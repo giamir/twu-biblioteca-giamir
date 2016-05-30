@@ -1,7 +1,9 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.user;
 
 import java.util.*;
 
+import com.twu.biblioteca.user.User;
+import com.twu.biblioteca.user.UserManager;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

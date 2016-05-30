@@ -1,8 +1,7 @@
 package com.twu.biblioteca.itemlisters;
 
-import com.twu.biblioteca.User;
+import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.items.*;
-import sun.rmi.server.UnicastServerRef;
 
 import java.util.ArrayList;
 import java.util.Scanner;

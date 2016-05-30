@@ -1,6 +1,6 @@
 package com.twu.biblioteca.items;
 
-import com.twu.biblioteca.User;
+import com.twu.biblioteca.user.User;
 import java.io.PrintStream;
 
 public interface Item {

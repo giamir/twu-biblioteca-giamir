@@ -1,6 +1,6 @@
 package com.twu.biblioteca.itemlisters;
 
-import com.twu.biblioteca.User;
+import com.twu.biblioteca.user.User;
 
 public interface ItemLister {
     void listItems();

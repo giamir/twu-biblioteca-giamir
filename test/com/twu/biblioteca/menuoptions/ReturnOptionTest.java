@@ -1,8 +1,8 @@
 package com.twu.biblioteca.menuoptions;
 
-import com.twu.biblioteca.*;
 import com.twu.biblioteca.itemlisters.BookLister;
 
+import com.twu.biblioteca.user.UserManager;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

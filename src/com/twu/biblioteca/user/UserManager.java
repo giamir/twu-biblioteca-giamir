@@ -1,6 +1,5 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.user;
 
-import javax.jws.soap.SOAPBinding;
 import java.io.PrintStream;
 import java.util.*;
 

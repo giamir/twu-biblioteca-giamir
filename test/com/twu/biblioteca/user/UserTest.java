@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.user;
 
+import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

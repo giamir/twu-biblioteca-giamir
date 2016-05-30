@@ -1,12 +1,10 @@
 package com.twu.biblioteca.items;
 
-import com.twu.biblioteca.User;
+import com.twu.biblioteca.user.User;
 import java.io.PrintStream;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.jws.soap.SOAPBinding;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;

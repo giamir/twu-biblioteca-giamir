@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.util.*;
 
 import com.twu.biblioteca.menuoptions.*;
+import com.twu.biblioteca.user.UserManager;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

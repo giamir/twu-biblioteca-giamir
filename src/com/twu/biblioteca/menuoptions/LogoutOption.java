@@ -1,6 +1,6 @@
 package com.twu.biblioteca.menuoptions;
 
-import com.twu.biblioteca.UserManager;
+import com.twu.biblioteca.user.UserManager;
 
 public class LogoutOption extends MenuItemBase implements MenuItem {
 

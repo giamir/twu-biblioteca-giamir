@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.menuoptions.*;
+import com.twu.biblioteca.user.UserManager;
 
 import java.util.*;
 import java.io.PrintStream;

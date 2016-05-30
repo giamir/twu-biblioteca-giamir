@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.items.*;
 import com.twu.biblioteca.itemlisters.*;
 import com.twu.biblioteca.menuoptions.*;
+import com.twu.biblioteca.user.User;
+import com.twu.biblioteca.user.UserManager;
 
 import java.util.ArrayList;
 

@@ -2,7 +2,7 @@ package com.twu.biblioteca.itemlisters;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import com.twu.biblioteca.User;
+import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.items.Item;
 import com.twu.biblioteca.items.Book;
 
