@@ -1,30 +1,37 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.menuoptions.MenuItem;
+import com.twu.biblioteca.menuoptions.*;
 
+import java.util.*;
 import java.io.PrintStream;
-import java.util.ArrayList;
 
 public class MainMenu {
 
     private final static String MAIN_MENU_MSG = "MAIN MENU";
     private final static String NOT_VALID_OPTION_MSG = "Select a valid option!";
-    private ArrayList<MenuItem> items;
 
-    public MainMenu(ArrayList<MenuItem> i) {
+    private ArrayList<MenuItem> items;
+    private UserManager userManager;
+
+    public MainMenu(ArrayList<MenuItem> i, UserManager um) {
         items = i;
+        userManager = um;
     }
 
     public void printOptions(PrintStream ps) {
+        ps.println();
         ps.println(MAIN_MENU_MSG);
         for(MenuItem item: items){
-            ps.println("- " + item.getName());
+            if (isItemDeactiveted(item)) continue;
+            ps.println("- " + item.getName() + " [" +  generateCommand(item.getName()) + "]");
         }
     }
 
-    public void runMenuItem(String userInput, PrintStream ps) {
+    public void runMenuItem(PrintStream ps) {
+        String userInput = chooseMenuItem();
         if (isValidOption(userInput)) {
             for (MenuItem item : items) {
+                if (isItemDeactiveted(item)) continue;
                 if (userInput.equals(generateCommand(item.getName()))) item.run();
             }
         } else { printNotValidOption(ps); }
@@ -40,7 +47,10 @@ public class MainMenu {
 
     private ArrayList<String> commandsList(){
         ArrayList<String> commandsList = new ArrayList<String>();
-        for(MenuItem item: items) commandsList.add(generateCommand(item.getName()));
+        for(MenuItem item: items) {
+            if (isItemDeactiveted(item)) continue;
+            commandsList.add(generateCommand(item.getName()));
+        }
         return commandsList;
     }
 
@@ -49,5 +59,16 @@ public class MainMenu {
         String command = "";
         for(String word: splittedInput) command += word.substring(0,1);
         return command.toUpperCase();
+    }
+
+    private String chooseMenuItem(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nEnter a menu option command (first letter/s): ");
+        return scanner.next().toUpperCase();
+    }
+
+    private boolean isItemDeactiveted(MenuItem item){
+        return (userManager.isLoggedIn() && item.showWhenLoggedOutOnly()) ||
+                (!userManager.isLoggedIn() && item.showWhenLoggedInOnly());
     }
 }

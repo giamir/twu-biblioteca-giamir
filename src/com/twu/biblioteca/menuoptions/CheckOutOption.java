@@ -15,4 +15,7 @@ public class CheckOutOption extends MenuItemBase implements MenuItem {
     public void run() {
         itemLister.checkOut();
     }
+
+    @Override
+    public boolean showWhenLoggedInOnly() { return true; }
 }

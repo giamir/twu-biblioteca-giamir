@@ -40,6 +40,7 @@ public class UserManagerTest {
         systemInMock.provideLines("123-4567", "password");
         userManager.authenticate(System.out);
         assertEquals(u1, userManager.getCurrentUser());
+        assertTrue(userManager.isLoggedIn());
     }
 
     @Test
@@ -68,12 +69,14 @@ public class UserManagerTest {
     public void logoutShouldResetCurrentUser() {
         systemInMock.provideLines("123-4567", "password");
         userManager.authenticate(System.out);
-        userManager.logout();
+        userManager.logout(System.out);
         assertEquals(null, userManager.getCurrentUser());
+        assertFalse(userManager.isLoggedIn());
     }
 
     @Test
     public void logoutShouldReturnAFailureMessageIfNoUserIsLoggedIn() {
-        assertEquals("No user is logged in", userManager.logout());
+        userManager.logout(System.out);
+        assertTrue(systemOutRule.getLog().contains("No user is logged in"));
     }
 }

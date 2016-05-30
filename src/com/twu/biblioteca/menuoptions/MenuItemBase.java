@@ -15,4 +15,10 @@ abstract public class MenuItemBase implements MenuItem {
 
     @Override
     abstract public void run();
+
+    @Override
+    public boolean showWhenLoggedInOnly() { return false; }
+
+    @Override
+    public boolean showWhenLoggedOutOnly() { return false; }
 }

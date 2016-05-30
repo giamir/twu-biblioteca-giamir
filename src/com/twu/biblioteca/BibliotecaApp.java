@@ -5,7 +5,6 @@ import com.twu.biblioteca.itemlisters.*;
 import com.twu.biblioteca.menuoptions.*;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class BibliotecaApp {
 
@@ -18,16 +17,18 @@ public class BibliotecaApp {
         Message message = new Message(System.out);
         message.printWelcome();
 
-        MainMenu mainMenu = new MainMenu(makeMenuItems());
-        mainMenu.printOptions(System.out);
+        UserManager userManager = new UserManager(makeUserList());
+        MainMenu mainMenu = new MainMenu(makeMenuItems(userManager), userManager);
 
-        while(true) mainMenu.runMenuItem(chooseMenuItem(), System.out);
+        while(true) {
+            mainMenu.printOptions(System.out);
+            mainMenu.runMenuItem(System.out);
+        }
     }
 
-    private ArrayList<MenuItem> makeMenuItems() {
+    private ArrayList<MenuItem> makeMenuItems(UserManager userManager) {
         BookLister bookLister = new BookLister(makeBookList());
         MovieLister movieLister = new MovieLister(makeMovieList());
-
         ArrayList<MenuItem> items = new ArrayList<MenuItem>();
         items.add(new ListOption("List Books", bookLister));
         items.add(new ListOption("List Movies", movieLister));
@@ -35,8 +36,9 @@ public class BibliotecaApp {
         items.add(new CheckOutOption("Check Out Movie", movieLister));
         items.add(new ReturnOption("Return Book", bookLister));
         items.add(new ReturnOption("Return Movie", movieLister));
+        items.add(new LoginOption("Sign In", userManager));
+        items.add(new LogoutOption("Sign Out", userManager));
         items.add(new QuitOption("Quit"));
-
         return items;
     }
 
@@ -56,9 +58,11 @@ public class BibliotecaApp {
         return movieList;
     }
 
-    private String chooseMenuItem(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\nEnter a menu option command (first letter/s): ");
-        return scanner.next().toUpperCase();
+    private ArrayList<User> makeUserList() {
+        ArrayList<User> userList = new ArrayList<User>();
+        userList.add(new User("123-4567", "password1"));
+        userList.add(new User("234-5678", "password2"));
+        userList.add(new User("345-6789", "password3"));
+        return userList;
     }
 }

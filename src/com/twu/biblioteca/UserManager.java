@@ -23,20 +23,22 @@ public class UserManager {
         return currentUser;
     }
 
+    public boolean isLoggedIn() { return currentUser != null; }
+
     public void authenticate(PrintStream ps) {
-        if (currentUser != null){
+        if (isLoggedIn()) {
             ps.println(ALREADY_LOGGED_IN_MSG);
             return;
         }
         currentUser = retrieveUser(getLibraryNumber(), getPassword());
-        if (currentUser == null) { ps.println(NOT_VALID_CREDENTIALS_MSG); }
+        if (!isLoggedIn()) { ps.println(NOT_VALID_CREDENTIALS_MSG); }
         else { ps.println(LOGGED_IN_MSG); }
     }
 
-    public String logout() {
-        if (currentUser == null) return NOT_LOGGED_IN_MSG;
+    public void logout(PrintStream ps) {
+        if (!isLoggedIn()) ps.println(NOT_LOGGED_IN_MSG);
         currentUser = null;
-        return LOGGED_OUT_MSG;
+        ps.println(LOGGED_OUT_MSG);
     }
 
     private User retrieveUser(String libraryNumber, String password) {

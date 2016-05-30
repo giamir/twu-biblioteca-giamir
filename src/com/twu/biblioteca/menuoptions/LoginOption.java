@@ -15,4 +15,7 @@ public class LoginOption extends MenuItemBase implements MenuItem {
     public void run() {
         userManager.authenticate(System.out);
     }
+
+    @Override
+    public boolean showWhenLoggedOutOnly() { return true; }
 }

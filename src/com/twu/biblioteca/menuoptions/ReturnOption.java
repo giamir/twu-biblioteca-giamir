@@ -15,4 +15,7 @@ public class ReturnOption extends MenuItemBase implements MenuItem {
     public void run() {
         itemLister.giveBack();
     }
+
+    @Override
+    public boolean showWhenLoggedInOnly() { return true; }
 }

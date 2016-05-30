@@ -25,6 +25,6 @@ public class LogoutOptionTest {
     @Test
     public void runShouldExecuteListBooksMethodOfBookLister() {
         lo.run();
-        verify(um, times(1)).logout();
+        verify(um, times(1)).logout(System.out);
     }
 }
