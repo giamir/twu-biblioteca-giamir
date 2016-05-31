@@ -9,6 +9,12 @@ abstract public class ItemListerBase implements ItemLister {
     private static final String ITEM_NOT_AVAILABLE_MSG = "That item is not available.";
     private static final String ITEM_NOT_VALID_TO_RETURN_MSG = "That is not a valid item to return.";
 
+    protected static final String TITLE_MSG = "title";
+    protected static final String AUTHOR_MSG = "author";
+    protected static final String YEAR_MSG = "year";
+    protected static final String NAME_MSG = "name";
+    protected static final String DIRECTOR_MSG = "director";
+
     private ArrayList<Item> itemList;
 
     public ItemListerBase(ArrayList<Item> il){

@@ -1,7 +1,6 @@
 package com.twu.biblioteca.user;
 
 import java.util.*;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
