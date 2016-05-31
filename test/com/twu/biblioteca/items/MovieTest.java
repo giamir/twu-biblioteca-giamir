@@ -40,6 +40,9 @@ public class MovieTest {
     }
 
     @Test
+    public void getHolderShouldRetrieveMovieHolder() { assertEquals(null, movie.getHolder()); }
+
+    @Test
     public void getRatingShouldPrintUnratedIfMovieIsWithNoRating() {
         Movie unratedMovie = new Movie("The Godfather", "Francis Ford Coppola", 1972);
         assertEquals("unrated", unratedMovie.getRating());
@@ -64,8 +67,14 @@ public class MovieTest {
     }
 
     @Test
-    public void giveBackShouldReturnACheckedOutMovieMessage() {
+    public void checkOutkShouldReturnASuccessCheckOutMessage() {
         assertEquals("Thank you! Enjoy the movie", movie.checkOut(user));
+    }
+
+    @Test
+    public void checkOutShouldReturnAFailureCheckedMessageIfMovieIsAlreadyCheckedOut() {
+        movie.checkOut(user);
+        assertEquals("That movie is not available.", movie.checkOut(user));
     }
 
     @Test
@@ -76,9 +85,14 @@ public class MovieTest {
     }
 
     @Test
-    public void giveBackShouldReturnAReturnedMovieMessage() {
+    public void giveBackShouldReturnASuccessReturnMessage() {
         movie.checkOut(user);
         assertEquals("Thank you for returning the movie.", movie.giveBack(user));
+    }
+
+    @Test
+    public void giveBackShouldReturnAFailureReturnMessageIfMovieIsNotCheckedOut() {
+        assertEquals("That is not a valid movie to return.", movie.giveBack(user));
     }
 
     @Test

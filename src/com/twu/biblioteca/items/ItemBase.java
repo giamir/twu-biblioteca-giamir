@@ -5,10 +5,6 @@ import com.twu.biblioteca.user.User;
 
 abstract public class ItemBase implements Item {
 
-    private static final String ITEM_SUCCESSFUL_CHECKOUT_MSG = "Thank you! Enjoy the item";
-    private static final String ITEM_NOT_AVAILABLE_MSG = "That item is not available.";
-    private static final String ITEM_SUCCESSFUL_RETURN_MSG = "Thank you for returning the item.";
-    private static final String ITEM_NOT_VALID_TO_RETURN_MSG = "That is not a valid item to return.";
     private static final String ITEM_PRINT_FORMAT = "%-30.30s %-30.30s %-30.30s%n";
 
     private String title;
@@ -52,16 +48,6 @@ abstract public class ItemBase implements Item {
     @Override
     public boolean isEqualTo(Item item) {
         return title.equalsIgnoreCase(item.getTitle()) && author.equalsIgnoreCase(item.getAuthor()) && year == item.getYear();
-    }
-
-    @Override
-    public String checkOut(User user) {
-        return evaluateCheckOut(user) ? ITEM_SUCCESSFUL_CHECKOUT_MSG : ITEM_NOT_AVAILABLE_MSG;
-    }
-
-    @Override
-    public String giveBack(User user) {
-        return evaluateGiveBack(user) ? ITEM_SUCCESSFUL_RETURN_MSG : ITEM_NOT_VALID_TO_RETURN_MSG;
     }
 
     @Override

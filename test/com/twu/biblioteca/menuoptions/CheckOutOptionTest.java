@@ -31,4 +31,14 @@ public class CheckOutOptionTest {
         checkOutOption.run();
         verify(bookLister, times(1)).checkOut(userManager.getCurrentUser());
     }
+
+    @Test
+    public void showLoggedInOnlyShouldReturnTrue() {
+        assertTrue(checkOutOption.showWhenLoggedInOnly());
+    }
+
+    @Test
+    public void showLoggedOutOnlyShouldReturnFalse() {
+        assertFalse(checkOutOption.showWhenLoggedOutOnly());
+    }
 }

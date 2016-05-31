@@ -28,4 +28,14 @@ public class LogoutOptionTest {
         logoutOption.run();
         verify(userManager, times(1)).logout(System.out);
     }
+
+    @Test
+    public void showLoggedInOnlyShouldReturnTrue() {
+        assertTrue(logoutOption.showWhenLoggedInOnly());
+    }
+
+    @Test
+    public void showLoggedOutOnlyShouldReturnFalse() {
+        assertFalse(logoutOption.showWhenLoggedOutOnly());
+    }
 }

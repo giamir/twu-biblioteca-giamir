@@ -28,4 +28,14 @@ public class ListOptionTest {
         listOption.run();
         verify(bookLister, times(1)).listItems();
     }
+
+    @Test
+    public void showLoggedInOnlyShouldReturnFalse() {
+        assertFalse(listOption.showWhenLoggedInOnly());
+    }
+
+    @Test
+    public void showLoggedOutOnlyShouldReturnFalse() {
+        assertFalse(listOption.showWhenLoggedOutOnly());
+    }
 }

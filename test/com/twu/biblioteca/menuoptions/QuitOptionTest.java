@@ -29,4 +29,14 @@ public class QuitOptionTest {
         exit.expectSystemExitWithStatus(0);
         quitOption.run();
     }
+
+    @Test
+    public void showLoggedInOnlyShouldReturnFalse() {
+        assertFalse(quitOption.showWhenLoggedInOnly());
+    }
+
+    @Test
+    public void showLoggedOutOnlyShouldReturnFalse() {
+        assertFalse(quitOption.showWhenLoggedOutOnly());
+    }
 }

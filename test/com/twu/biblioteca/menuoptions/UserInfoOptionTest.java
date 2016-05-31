@@ -30,4 +30,14 @@ public class UserInfoOptionTest {
         userInfoOption.run();
         verify(user, times(1)).printProfile(System.out);
     }
+
+    @Test
+    public void showLoggedInOnlyShouldReturnTrue() {
+        assertTrue(userInfoOption.showWhenLoggedInOnly());
+    }
+
+    @Test
+    public void showLoggedOutOnlyShouldReturnFalse() {
+        assertFalse(userInfoOption.showWhenLoggedOutOnly());
+    }
 }

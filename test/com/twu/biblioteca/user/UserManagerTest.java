@@ -51,8 +51,15 @@ public class UserManagerTest {
     }
 
     @Test
-    public void authenticateShouldReturnAFailureMessageIfTheUserCouldNotLogIn() {
-        systemInMock.provideLines("not_correct_user", "password_not_correct");
+    public void authenticateShouldReturnAFailureMessageIfTheUserProvideANotCorrectLibraryNumber() {
+        systemInMock.provideLines("not_correct_library_number", "password");
+        userManager.authenticate(System.out);
+        assertTrue(systemOutRule.getLog().contains("User and/or Password not correct"));
+    }
+
+    @Test
+    public void authenticateShouldReturnAFailureMessageIfTheUserProvideANotCorrectPassword() {
+        systemInMock.provideLines("123-4567", "password_not_correct");
         userManager.authenticate(System.out);
         assertTrue(systemOutRule.getLog().contains("User and/or Password not correct"));
     }

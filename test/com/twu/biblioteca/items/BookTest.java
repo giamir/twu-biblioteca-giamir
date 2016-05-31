@@ -35,6 +35,9 @@ public class BookTest {
     }
 
     @Test
+    public void getHolderShouldRetrieveBookHolder() { assertEquals(null, book.getHolder()); }
+
+    @Test
     public void isEqualToShouldReturnTrueIfTheBookPassedAsArgumentHaveTheSameProperties() {
         Book equalBook = new Book("High Fidelity", "Nick Hornby", 1995);
         assertTrue(book.isEqualTo(equalBook));
@@ -53,8 +56,14 @@ public class BookTest {
     }
 
     @Test
-    public void giveBackShouldReturnACheckedOutBookMessage() {
+    public void checkOutShouldReturnASuccessCheckOutMessage() {
         assertEquals("Thank you! Enjoy the book", book.checkOut(user));
+    }
+
+    @Test
+    public void checkOutShouldReturnAFailureCheckedMessageIfBookIsAlreadyCheckedOut() {
+        book.checkOut(user);
+        assertEquals("That book is not available.", book.checkOut(user));
     }
 
     @Test
@@ -65,9 +74,14 @@ public class BookTest {
     }
 
     @Test
-    public void giveBackShouldReturnAReturnedBookMessage() {
+    public void giveBackShouldReturnASuccessReturnMessage() {
         book.checkOut(user);
         assertEquals("Thank you for returning the book.", book.giveBack(user));
+    }
+
+    @Test
+    public void giveBackShouldReturnAFailureReturnMessageIfBookIsNotChechedOut() {
+        assertEquals("That is not a valid book to return.", book.giveBack(user));
     }
 
     @Test

@@ -31,4 +31,14 @@ public class ReturnOptionTest {
         returnOption.run();
         verify(bookLister, times(1)).giveBack(userManager.getCurrentUser());
     }
+
+    @Test
+    public void showLoggedInOnlyShouldReturnTrue() {
+        assertTrue(returnOption.showWhenLoggedInOnly());
+    }
+
+    @Test
+    public void showLoggedOutOnlyShouldReturnFalse() {
+        assertFalse(returnOption.showWhenLoggedOutOnly());
+    }
 }
