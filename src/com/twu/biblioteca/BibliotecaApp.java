@@ -35,6 +35,7 @@ public class BibliotecaApp {
         items.add(new ReturnOption("Return Movie", movieLister, userManager));
         items.add(new LoginOption("Sign In", userManager));
         items.add(new LogoutOption("Sign Out", userManager));
+        items.add(new UserInfoOption("User Details", userManager));
         items.add(new QuitOption("Quit"));
         return items;
     }

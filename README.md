@@ -37,122 +37,135 @@ $ java com.twu.biblioteca.BibliotecaApp
 WELCOME TO BIBLIOTECA
 
 MAIN MENU
-- List Books [LB]
-- List Movies [LM]
-- Sign In [SI]
-- Quit [Q]
+ - List Books [LB]
+ - List Movies [LM]
+ - Sign In [SI]
+ - Quit [Q]
 
-Enter a menu option command (first letter/s): SI
+Enter a menu command option: SI
 Enter your library number: 123-4567
 Enter your password: password1
 Logged in successfully
 
 MAIN MENU
-- List Books [LB]
-- List Movies [LM]
-- Check Out Book [COB]
-- Check Out Movie [COM]
-- Return Book [RB]
-- Return Movie [RM]
-- Sign Out [SO]
-- Quit [Q]
+ - List Books [LB]
+ - List Movies [LM]
+ - Check Out Book [COB]
+ - Check Out Movie [COM]
+ - Return Book [RB]
+ - Return Movie [RM]
+ - Sign Out [SO]
+ - User Details [UD]
+ - Quit [Q]
 
-Enter a menu option command (first letter/s): LB
+Enter a menu command option: UD
+USER PROFILE DETAILS
+Name: Giamir
+Email: hello@giamir.com
+Phone: +44 0123 456789
+
+MAIN MENU
+ - List Books [LB]
+ - List Movies [LM]
+ - Check Out Book [COB]
+ - Check Out Movie [COM]
+ - Return Book [RB]
+ - Return Movie [RM]
+ - Sign Out [SO]
+ - User Details [UD]
+ - Quit [Q]
+
+Enter a menu command option: LB
 High Fidelity                  Nick Hornby                    1995
 The Divine Comedy              Dante Alighieri                1320
 The Decameron                  Giovanni Boccaccio             1353
 
 MAIN MENU
-- List Books [LB]
-- List Movies [LM]
-- Check Out Book [COB]
-- Check Out Movie [COM]
-- Return Book [RB]
-- Return Movie [RM]
-- Sign Out [SO]
-- Quit [Q]
+ - List Books [LB]
+ - List Movies [LM]
+ - Check Out Book [COB]
+ - Check Out Movie [COM]
+ - Return Book [RB]
+ - Return Movie [RM]
+ - Sign Out [SO]
+ - User Details [UD]
+ - Quit [Q]
 
-Enter a menu option command (first letter/s): COB
-Enter the title: The Divine Comedy
-Enter the author: Dante Alighieri
-Enter the year: 1320
+Enter a menu command option: COB
+Enter title: The Divine Comedy
+Enter author: Dante Alighieri
+Enter year: 1320
 Thank you! Enjoy the book
 
 MAIN MENU
-- List Books [LB]
-- List Movies [LM]
-- Check Out Book [COB]
-- Check Out Movie [COM]
-- Return Book [RB]
-- Return Movie [RM]
-- Sign Out [SO]
-- Quit [Q]
+ - List Books [LB]
+ - List Movies [LM]
+ - Check Out Book [COB]
+ - Check Out Movie [COM]
+ - Return Book [RB]
+ - Return Movie [RM]
+ - Sign Out [SO]
+ - User Details [UD]
+ - Quit [Q]
 
-Enter a menu option command (first letter/s): LB
+Enter a menu command option: LB
 High Fidelity                  Nick Hornby                    1995
 The Decameron                  Giovanni Boccaccio             1353
 
 MAIN MENU
-- List Books [LB]
-- List Movies [LM]
-- Check Out Book [COB]
-- Check Out Movie [COM]
-- Return Book [RB]
-- Return Movie [RM]
-- Sign Out [SO]
-- Quit [Q]
+ - List Books [LB]
+ - List Movies [LM]
+ - Check Out Book [COB]
+ - Check Out Movie [COM]
+ - Return Book [RB]
+ - Return Movie [RM]
+ - Sign Out [SO]
+ - User Details [UD]
+ - Quit [Q]
 
-Enter a menu option command (first letter/s): RB
-Enter the title: The Divine Comedy
-Enter the author: Dante Alighieri
-Enter the year: 1320
+Enter a menu command option: RB
+Enter title: The Divine Comedy
+Enter author: Dante Alighieri
+Enter year: 1320
 Thank you for returning the book.
 
 MAIN MENU
-- List Books [LB]
-- List Movies [LM]
-- Check Out Book [COB]
-- Check Out Movie [COM]
-- Return Book [RB]
-- Return Movie [RM]
-- Sign Out [SO]
-- Quit [Q]
+ - List Books [LB]
+ - List Movies [LM]
+ - Check Out Book [COB]
+ - Check Out Movie [COM]
+ - Return Book [RB]
+ - Return Movie [RM]
+ - Sign Out [SO]
+ - User Details [UD]
+ - Quit [Q]
 
-Enter a menu option command (first letter/s): LB
+Enter a menu command option: LB
 High Fidelity                  Nick Hornby                    1995
 The Divine Comedy              Dante Alighieri                1320
 The Decameron                  Giovanni Boccaccio             1353
 
 MAIN MENU
-- List Books [LB]
-- List Movies [LM]
-- Check Out Book [COB]
-- Check Out Movie [COM]
-- Return Book [RB]
-- Return Movie [RM]
-- Sign Out [SO]
-- Quit [Q]
+ - List Books [LB]
+ - List Movies [LM]
+ - Check Out Book [COB]
+ - Check Out Movie [COM]
+ - Return Book [RB]
+ - Return Movie [RM]
+ - Sign Out [SO]
+ - User Details [UD]
+ - Quit [Q]
 
-MAIN MENU
-- List Books [LB]
-- List Movies [LM]
-- Check Out Book [COB]
-- Check Out Movie [COM]
-- Return Book [RB]
-- Return Movie [RM]
-- Sign Out [SO]
-- Quit [Q]
-
-Enter a menu option command (first letter/s): SO
+Enter a menu command option: SO
 Logged out successfully
 
 MAIN MENU
-- List Books [LB]
-- List Movies [LM]
-- Sign In [SI]
-- Quit [Q]
+ - List Books [LB]
+ - List Movies [LM]
+ - Sign In [SI]
+ - Quit [Q]
 
-Enter a menu option command (first letter/s): Q
+Enter a menu command option: Q
 ```
 
 ## Business Case
