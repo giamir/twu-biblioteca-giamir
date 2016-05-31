@@ -22,12 +22,6 @@ abstract public class ItemListerBase implements ItemLister {
         }
     }
 
-    @Override
-    abstract public void checkOut(User user);
-
-    @Override
-    abstract public void giveBack(User user);
-
     protected String checkOutItem(Item item, User user) {
         for(Item i: itemList){
             if(i.isEqualTo(item)) return i.checkOut(user);

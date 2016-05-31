@@ -2,7 +2,6 @@ package com.twu.biblioteca.user;
 
 import java.util.*;
 import java.io.PrintStream;
-
 import com.twu.biblioteca.IO.Scanner;
 
 public class UserManager {
@@ -39,7 +38,10 @@ public class UserManager {
     }
 
     public void logout(PrintStream ps) {
-        if (!isLoggedIn()) ps.println(NOT_LOGGED_IN_MSG);
+        if (!isLoggedIn()) {
+            ps.println(NOT_LOGGED_IN_MSG);
+            return;
+        }
         currentUser = null;
         ps.println(LOGGED_OUT_MSG);
     }

@@ -1,10 +1,10 @@
 package com.twu.biblioteca.items;
 
-import com.twu.biblioteca.user.User;
 import java.io.PrintStream;
-
+import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;

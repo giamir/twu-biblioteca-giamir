@@ -1,8 +1,7 @@
 package com.twu.biblioteca.items;
 
-import com.twu.biblioteca.user.User;
-
 import java.io.PrintStream;
+import com.twu.biblioteca.user.User;
 
 public class Movie extends ItemBase implements Item {
 
@@ -11,6 +10,7 @@ public class Movie extends ItemBase implements Item {
     private static final String MOVIE_SUCCESSFUL_RETURN_MSG = "Thank you for returning the movie.";
     private static final String MOVIE_NOT_VALID_TO_RETURN_MSG = "That is not a valid movie to return.";
     private static final String MOVIE_UNRATED_MSG = "unrated";
+    private static final String MOVIE_PRINT_FORMAT = "%-30.30s %-30.30s %-30.30s %-30.30s%n";
 
     private int rating;
 
@@ -40,6 +40,6 @@ public class Movie extends ItemBase implements Item {
 
     @Override
     public void printDetails(PrintStream printStream) {
-        printStream.printf("%-30.30s %-30.30s %-30.30s %-30.30s%n", getTitle(), getAuthor(), getYear(), getRating());
+        printStream.printf(MOVIE_PRINT_FORMAT, getTitle(), getAuthor(), getYear(), getRating());
     }
 }

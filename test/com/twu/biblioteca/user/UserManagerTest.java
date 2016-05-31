@@ -2,8 +2,6 @@ package com.twu.biblioteca.user;
 
 import java.util.*;
 
-import com.twu.biblioteca.user.User;
-import com.twu.biblioteca.user.UserManager;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -14,9 +12,10 @@ import static org.mockito.Mockito.*;
 import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.*;
 
 public class UserManagerTest {
+
+    private User user1;
+    private User user2;
     private UserManager userManager;
-    private User u1;
-    private User u2;
 
     @Rule
     public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
@@ -26,14 +25,14 @@ public class UserManagerTest {
 
     @Before
     public void beforeEach() {
-        u1 = mock(User.class);
-        when(u1.getLibraryNumber()).thenReturn("123-4567");
-        when(u1.getPassword()).thenReturn("password");
-        u2 = mock(User.class);
-        when(u2.getLibraryNumber()).thenReturn("234-5678");
-        when(u2.getPassword()).thenReturn("wordpass");
+        user1 = mock(User.class);
+        when(user1.getLibraryNumber()).thenReturn("123-4567");
+        when(user1.getPassword()).thenReturn("password");
+        user2 = mock(User.class);
+        when(user2.getLibraryNumber()).thenReturn("234-5678");
+        when(user2.getPassword()).thenReturn("wordpass");
         ArrayList<User> userList = new ArrayList<User>();
-        userList.addAll(Arrays.asList(u1, u2));
+        userList.addAll(Arrays.asList(user1, user2));
         userManager = new UserManager(userList);
     }
 
@@ -41,7 +40,7 @@ public class UserManagerTest {
     public void authenticateShouldSetCurrentUser() {
         systemInMock.provideLines("123-4567", "password");
         userManager.authenticate(System.out);
-        assertEquals(u1, userManager.getCurrentUser());
+        assertEquals(user1, userManager.getCurrentUser());
         assertTrue(userManager.isLoggedIn());
     }
 
@@ -65,6 +64,7 @@ public class UserManagerTest {
         userManager.authenticate(System.out);
         userManager.authenticate(System.out);
         assertTrue(systemOutRule.getLog().contains("Already logged in"));
+        assertFalse(systemOutRule.getLog().contains("Already logged in Logged in successfully"));
     }
 
     @Test
@@ -77,8 +77,17 @@ public class UserManagerTest {
     }
 
     @Test
+    public void logoutShouldReturnASuccessfullMessageIfTheUserIsLoggedOut() {
+        systemInMock.provideLines("123-4567", "password");
+        userManager.authenticate(System.out);
+        userManager.logout(System.out);
+        assertTrue(systemOutRule.getLog().contains("Logged out successfully"));
+    }
+
+    @Test
     public void logoutShouldReturnAFailureMessageIfNoUserIsLoggedIn() {
         userManager.logout(System.out);
         assertTrue(systemOutRule.getLog().contains("No user is logged in"));
+        assertFalse(systemOutRule.getLog().contains("Logged out successfully"));
     }
 }

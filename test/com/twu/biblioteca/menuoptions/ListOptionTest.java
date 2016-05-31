@@ -3,28 +3,29 @@ package com.twu.biblioteca.menuoptions;
 import com.twu.biblioteca.itemlisters.BookLister;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class ListOptionTest {
 
-    private ListOption lo;
-    private BookLister bl;
+    private ListOption listOption;
+    private BookLister bookLister;
 
     @Before
     public void beforeEach(){
-        bl = mock(BookLister.class);
-        lo = new ListOption("List Books", bl);
+        bookLister = mock(BookLister.class);
+        listOption = new ListOption("List Books", bookLister);
     }
 
     @Test
     public void getNameShouldReturnOptionName() {
-        assertEquals("List Books", lo.getName());
+        assertEquals("List Books", listOption.getName());
     }
 
     @Test
     public void runShouldExecuteListBooksMethodOfBookLister() {
-        lo.run();
-        verify(bl, times(1)).listItems();
+        listOption.run();
+        verify(bookLister, times(1)).listItems();
     }
 }

@@ -9,6 +9,7 @@ abstract public class ItemBase implements Item {
     private static final String ITEM_NOT_AVAILABLE_MSG = "That item is not available.";
     private static final String ITEM_SUCCESSFUL_RETURN_MSG = "Thank you for returning the item.";
     private static final String ITEM_NOT_VALID_TO_RETURN_MSG = "That is not a valid item to return.";
+    private static final String ITEM_PRINT_FORMAT = "%-30.30s %-30.30s %-30.30s%n";
 
     private String title;
     private String author;
@@ -65,7 +66,7 @@ abstract public class ItemBase implements Item {
 
     @Override
     public void printDetails(PrintStream printStream) {
-        printStream.printf("%-30.30s %-30.30s %-30.30s%n", getTitle(), getAuthor(), getYear());
+        printStream.printf(ITEM_PRINT_FORMAT, getTitle(), getAuthor(), getYear());
     }
 
     protected boolean evaluateCheckOut(User user) {

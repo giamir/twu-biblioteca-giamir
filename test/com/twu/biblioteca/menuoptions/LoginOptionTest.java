@@ -3,28 +3,29 @@ package com.twu.biblioteca.menuoptions;
 import com.twu.biblioteca.user.UserManager;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class LoginOptionTest {
 
-    private LoginOption lo;
-    private UserManager um;
+    private LoginOption loginOption;
+    private UserManager userManager;
 
     @Before
     public void beforeEach(){
-        um = mock(UserManager.class);
-        lo = new LoginOption("User Login", um);
+        userManager = mock(UserManager.class);
+        loginOption = new LoginOption("User Login", userManager);
     }
 
     @Test
     public void getNameShouldReturnOptionName() {
-        assertEquals("User Login", lo.getName());
+        assertEquals("User Login", loginOption.getName());
     }
 
     @Test
     public void runShouldExecuteListBooksMethodOfBookLister() {
-        lo.run();
-        verify(um, times(1)).authenticate(System.out);
+        loginOption.run();
+        verify(userManager, times(1)).authenticate(System.out);
     }
 }

@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import java.util.*;
 import java.io.PrintStream;
-
 import com.twu.biblioteca.IO.Scanner;
 import com.twu.biblioteca.menuoptions.*;
 import com.twu.biblioteca.user.*;
@@ -24,7 +23,7 @@ public class MainMenu {
     public void printOptions(PrintStream ps) {
         ps.println("\n" + MAIN_MENU_MSG);
         for(MenuItem item: items){
-            if (!isItemDeactivated(item)) ps.println("- " + item.getName() + " [" +  generateCommand(item.getName()) + "]");
+            if (!isItemDeactivated(item)) ps.println(" - " + item.getName() + " [" +  generateCommand(item.getName()) + "]");
         }
         ps.println();
     }
@@ -57,7 +56,7 @@ public class MainMenu {
     private String generateCommand(String input) {
         String[] splitInput = input.split("\\s+");
         String command = "";
-        for(String word: splitInput) command += word.substring(0,1);
+        for(String word: splitInput) command += word.substring(0, 1);
         return command.toUpperCase();
     }
 
