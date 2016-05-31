@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'jacoco'
 
 repositories {
     mavenCentral()
@@ -20,3 +21,17 @@ test {
         logger.lifecycle("Running test: ${descriptor}")
     }
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+    afterEvaluate {
+       classDirectories = files(classDirectories.files.collect {
+           fileTree(dir: it, exclude: '**/BibliotecaApp**')
+       })
+   }
+}
+
+check.dependsOn jacocoTestReport

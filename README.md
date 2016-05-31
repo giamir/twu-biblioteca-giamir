@@ -1,4 +1,4 @@
-# Biblioteca [![Build Status](https://travis-ci.org/giamir/twu-biblioteca-giamir.svg?branch=master)](https://travis-ci.org/giamir/twu-biblioteca-giamir)
+# Biblioteca [![Build Status](https://travis-ci.org/giamir/twu-biblioteca-giamir.svg?branch=master)](https://travis-ci.org/giamir/twu-biblioteca-giamir) [![Code Coverage](http://codecov.io/github/giamir/twu-biblioteca-giamir/coverage.svg?branch=master)](http://codecov.io/github/giamir/twu-biblioteca-giamir?branch=master)
 
 ## Installation Instructions
 Clone from github and move into directory
