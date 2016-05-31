@@ -24,7 +24,7 @@ public class LoginOptionTest {
     }
 
     @Test
-    public void runShouldExecuteListBooksMethodOfBookLister() {
+    public void runShouldExecuteAuthenticateMethodOfUserManager() {
         loginOption.run();
         verify(userManager, times(1)).authenticate(System.out);
     }
