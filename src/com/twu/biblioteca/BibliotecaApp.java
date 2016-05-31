@@ -57,9 +57,9 @@ public class BibliotecaApp {
 
     private static ArrayList<User> makeUserList() {
         ArrayList<User> userList = new ArrayList<User>();
-        userList.add(new User("123-4567", "password1"));
-        userList.add(new User("234-5678", "password2"));
-        userList.add(new User("345-6789", "password3"));
+        userList.add(new User("123-4567", "password1", new UserProfile("Giamir", "hello@giamir.com", "+44 0123 456789")));
+        userList.add(new User("234-5678", "password2", new UserProfile("John", "john@email.com", "+44 1234 567890")));
+        userList.add(new User("345-6789", "password3", new UserProfile("Mary", "mary@email.com", "+44 2345 678901")));
         return userList;
     }
 }
